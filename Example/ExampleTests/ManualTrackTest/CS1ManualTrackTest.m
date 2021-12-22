@@ -9,10 +9,10 @@
 #import "CS1ManualTrackTest.h"
 
 #import "GrowingAutotracker.h"
+#import "GrowingDispatchManager.h"
+#import "GrowingSession.h"
 #import "ManualTrackHelper.h"
 #import "MockEventQueue.h"
-#import "GrowingSession.h"
-#import "GrowingDispatchManager.h"
 
 @implementation CS1ManualTrackTest
 
@@ -33,8 +33,9 @@
     [tester scrollViewWithAccessibilityIdentifier:@"MeasurementProtocolTableView"
                        byFractionOfSizeHorizontal:0.0f
                                          vertical:-0.3f];
-    [tester waitForTimeInterval:1];
+    [viewTester waitForAnimationsToFinish];
     [[viewTester usingLabel:@"+ (void)setUserId:(NSString *)userId;"] tap];
+    [viewTester waitForAnimationsToFinish];
     [[viewTester usingLabel:@"SetUserId"] tap];
     [tester tapViewWithAccessibilityLabel:@"userIdTextField"];
 
@@ -111,10 +112,10 @@
     [[viewTester usingLabel:@"+ (void)setUserId:(NSString *)userId;"] tap];
     //设置初值
     [tester waitForTimeInterval:1];
-//    [tester tapViewWithAccessibilityLabel:@"userIdTextField"];
-//    [tester clearTextFromAndThenEnterTextIntoCurrentFirstResponder:@"%$#./"];
+    //    [tester tapViewWithAccessibilityLabel:@"userIdTextField"];
+    //    [tester clearTextFromAndThenEnterTextIntoCurrentFirstResponder:@"%$#./"];
 
-//    [[viewTester usingLabel:@"CustomSet"] tap];
+    //    [[viewTester usingLabel:@"CustomSet"] tap];
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"%$#./"];
 
     [tester waitForTimeInterval:2];
@@ -222,7 +223,9 @@
      记录：重构后的打点事件，没有page事件   2018-07-24
      ***/
     [MockEventQueue.sharedQueue cleanQueue];
-    [tester scrollViewWithAccessibilityLabel:@"LOGIN_USER_ATTRIBUTES请求" byFractionOfSizeHorizontal:0.0f vertical:-10.0f];
+    [tester scrollViewWithAccessibilityLabel:@"LOGIN_USER_ATTRIBUTES请求"
+                  byFractionOfSizeHorizontal:0.0f
+                                    vertical:-10.0f];
     [tester waitForTimeInterval:1];
     [[viewTester usingLabel:@"+ (void)clearUserId;"] tap];
     [[viewTester usingLabel:@"SetUserId"] tap];
@@ -291,14 +294,10 @@
     [self enterBackground];
     [self enterForeground];
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"lisi"];
-    TestRun(NSString *newSession = [[GrowingSession currentSession] sessionId];
-            XCTAssertNotNil(newSession);
-            XCTAssertNotEqual(oldSession, newSession);
-            NSLog(@"old:%@,new:%@", oldSession, newSession);)
-    
-    
+    TestRun(NSString *newSession = [[GrowingSession currentSession] sessionId]; XCTAssertNotNil(newSession);
+            XCTAssertNotEqual(oldSession, newSession); NSLog(@"old:%@,new:%@", oldSession, newSession);)
 }
--(void)test11CheckUserkey{
+- (void)test11CheckUserkey {
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"zhangsan"];
     [MockEventQueue.sharedQueue cleanQueue];
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"autotest" userKey:@"phone"];
@@ -308,12 +307,12 @@
         XCTAssertEqualObjects(vstchr[@"userKey"], @"phone");
         TestSuccess(@"");
     } else {
-        TestFailed(@"VST中的userKey为：%@",visitEventArray.firstObject[@"userKey"]);
+        TestFailed(@"VST中的userKey为：%@", visitEventArray.firstObject[@"userKey"]);
         XCTAssertEqual(1, 0);
     }
 }
 
--(void)test12ChangeUserkey{
+- (void)test12ChangeUserkey {
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"autotest1" userKey:@"phone"];
     [MockEventQueue.sharedQueue cleanQueue];
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"autotest2" userKey:@"email"];
@@ -326,10 +325,8 @@
         TestFailed(@"VST中的userKey为：%@", visitEventArray.firstObject[@"userKey"]);
         XCTAssertEqual(1, 0);
     }
-    
 }
--(void)test13ChangeUserkeynil{
-
+- (void)test13ChangeUserkeynil {
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"autotest1" userKey:@"phone"];
     [MockEventQueue.sharedQueue cleanQueue];
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"autotest2"];
@@ -343,7 +340,6 @@
         NSLog(@"测试失败，VST中的userKey为：%@", visitEventArray.firstObject[@"userKey"]);
         XCTAssertEqual(1, 0);
     }
-    
 }
 
 - (void)enterBackground {

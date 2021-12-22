@@ -8,11 +8,11 @@
 
 #import "A3VisitEventsTest.h"
 
-#import "GrowingTestHelper.h"
+#import "GrowingAutotrackEventType.h"
 #import "GrowingAutotracker.h"
+#import "GrowingTestHelper.h"
 #import "MockEventQueue.h"
 #import "NoburPoMeaProCheck.h"
-#import "GrowingAutotrackEventType.h"
 
 @implementation A3VisitEventsTest
 
@@ -20,18 +20,11 @@
     //设置userid,确保cs1字段不空
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"test"];
     [[viewTester usingLabel:@"UI界面"] tap];
-
 }
 - (void)afterEach {
-    //[GrowingTestHelper ExiteApp];
 }
 
 - (void)test1SetLocation {
-    /**
-     function:SetLocation触发，从null -> 非null 发一次。非null - 非null不发visit
-     **/
-//    NSString *oldSession = [[GrowingAutotracker sharedInstance] getSessionId];
-//    XCTAssertNotNil(oldSession);
     [[GrowingAutotracker sharedInstance] cleanLocation];
     [MockEventQueue.sharedQueue cleanQueue];
     [[GrowingAutotracker sharedInstance] setLocation:[@30.11 doubleValue] longitude:[@32.22 doubleValue]];

@@ -7,4 +7,5 @@ ignore:
   - "Services/WebSocket"
   - "Services/Database"
   - "Services/Compression"
+  - "Modules/Protobuf/Proto"
 

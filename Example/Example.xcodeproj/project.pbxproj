@@ -73,37 +73,39 @@
 		0465315E24DD4272002D254C /* GIOListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0465311D24DD4271002D254C /* GIOListTableViewCell.m */; };
 		0465315F24DD4272002D254C /* GIOListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465311E24DD4271002D254C /* GIOListTableViewCell.xib */; };
 		0465316024DD4272002D254C /* GIOButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0465312024DD4271002D254C /* GIOButtonViewController.m */; };
-		047BF3A924F638BB0028FE94 /* MediatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF39C24F638BB0028FE94 /* MediatorTest.m */; };
-		047BF3AA24F638BB0028FE94 /* GetIDsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF39F24F638BB0028FE94 /* GetIDsTest.m */; };
 		047BF3AB24F638BB0028FE94 /* GDPRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A024F638BB0028FE94 /* GDPRTest.m */; };
-		047BF3AC24F638BB0028FE94 /* TrackViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A124F638BB0028FE94 /* TrackViewTest.m */; };
-		047BF3AD24F638BB0028FE94 /* A1TrackAPIMainThreadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A224F638BB0028FE94 /* A1TrackAPIMainThreadTest.m */; };
+		047BF3AC24F638BB0028FE94 /* DataCollectionSwitchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A124F638BB0028FE94 /* DataCollectionSwitchTest.m */; };
+		047BF3AD24F638BB0028FE94 /* TrackAPIMainThreadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A224F638BB0028FE94 /* TrackAPIMainThreadTest.m */; };
 		047BF3AE24F638BB0028FE94 /* FlushIntervalAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A324F638BB0028FE94 /* FlushIntervalAPITest.m */; };
-		047BF3AF24F638BB0028FE94 /* DailyDataLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A424F638BB0028FE94 /* DailyDataLimit.m */; };
 		047BF3B024F638BB0028FE94 /* GetEnableLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A624F638BB0028FE94 /* GetEnableLogTest.m */; };
 		047BF3B124F638BB0028FE94 /* GetConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3A824F638BB0028FE94 /* GetConfigurationTest.m */; };
 		047BF3B424F6551B0028FE94 /* A3VisitEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3B324F6551B0028FE94 /* A3VisitEventsTest.m */; };
 		047BF3BA24F655A50028FE94 /* ClickEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3B624F655A50028FE94 /* ClickEventsTest.m */; };
 		047BF3BB24F655A50028FE94 /* A2ViewChangeEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3B724F655A50028FE94 /* A2ViewChangeEventsTest.m */; };
-		047BF3BC24F655A50028FE94 /* PageEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 047BF3B924F655A50028FE94 /* PageEventsTest.m */; };
+		04909E21276ADF83002BAC25 /* CompressionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04909E20276ADF83002BAC25 /* CompressionTest.m */; };
+		04909E33276AE771002BAC25 /* DatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04909E32276AE771002BAC25 /* DatabaseTest.m */; };
+		04909E40276AE9BA002BAC25 /* EncryptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04909E3F276AE9BA002BAC25 /* EncryptionTest.m */; };
+		04A4C02F276C3A7E0056C8C4 /* ProtobufDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C02B276C3A7E0056C8C4 /* ProtobufDatabaseTest.m */; };
+		04A4C030276C3A7E0056C8C4 /* ProtobufPersistenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C02C276C3A7E0056C8C4 /* ProtobufPersistenceTest.m */; };
+		04A4C031276C3A7E0056C8C4 /* ProtobufEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C02D276C3A7E0056C8C4 /* ProtobufEventsTest.m */; };
+		04A4C032276C3A7E0056C8C4 /* ProtobufRequestHeaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C02E276C3A7E0056C8C4 /* ProtobufRequestHeaderTest.m */; };
+		04A4C053276C4DED0056C8C4 /* HybridTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C052276C4DED0056C8C4 /* HybridTest.m */; };
+		04A4C05E276C502B0056C8C4 /* HybridEventTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C05D276C502B0056C8C4 /* HybridEventTest.m */; };
+		04A4C09E277025D70056C8C4 /* GrowingWindowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C09D277025D70056C8C4 /* GrowingWindowTest.m */; };
+		04A4C0C02771D40B0056C8C4 /* GrowingAnnotationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C0BF2771D40B0056C8C4 /* GrowingAnnotationTest.m */; };
+		04A4C0C62772C93D0056C8C4 /* GrowingServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C0C52772C93D0056C8C4 /* GrowingServiceTest.m */; };
+		04A4C0CC2772CBA10056C8C4 /* GrowingModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C0CB2772CBA10056C8C4 /* GrowingModuleTest.m */; };
 		04A6FAF224E662E9006C72F0 /* GIOChildsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6FAF124E662E9006C72F0 /* GIOChildsAddViewController.m */; };
 		04A6FAF524E67215006C72F0 /* GIOBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6FAF424E67215006C72F0 /* GIOBaseViewController.m */; };
 		04F675662628293800077374 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F675652628293800077374 /* AdSupport.framework */; };
 		349C1D3626D77D92005DB00C /* GIODataCollectionEnabledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349C1D3526D77D92005DB00C /* GIODataCollectionEnabledViewController.m */; };
 		34B932352767661600025C94 /* MeasurementProtocol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B932342767661600025C94 /* MeasurementProtocol.storyboard */; };
 		34BDC35A277088D40030B3CE /* UICatalogTests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BDC359277088D40030B3CE /* UICatalogTests.storyboard */; };
-		34BDE622275F56C800A47BF2 /* ProtobufEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BDE601275DFDAA00A47BF2 /* ProtobufEventsTest.m */; };
-		34BDE623275F56CC00A47BF2 /* ProtobufPersistenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BDE611275F48DE00A47BF2 /* ProtobufPersistenceTest.m */; };
-		34BDE624275F56CF00A47BF2 /* ProtobufRequestHeaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BDE613275F541700A47BF2 /* ProtobufRequestHeaderTest.m */; };
-		34FCFA792760B627000F8A20 /* ProtobufDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FCFA772760B621000F8A20 /* ProtobufDatabaseTest.m */; };
 		4223513425ED0B130082B431 /* WebSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223513325ED0B130082B431 /* WebSocketTests.m */; };
 		42ADE26C250B292900CA7268 /* HybridTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ADE26B250B292900CA7268 /* HybridTests.m */; };
-		42F753BD256E2E46002F0D37 /* HTTPStubsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F753BC256E2E46002F0D37 /* HTTPStubsHelper.m */; };
-		42F753C1256E3256002F0D37 /* SomeEventsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F753C0256E3256002F0D37 /* SomeEventsTest.m */; };
 		4916270F24E157BB00444AF2 /* GIOPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916270E24E157BB00444AF2 /* GIOPresentViewController.m */; };
 		4916271224E157CF00444AF2 /* GIOPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916271124E157CF00444AF2 /* GIOPagingViewController.m */; };
 		491D2D8D2500E2D9001CB289 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491D2D8C2500E2D9001CB289 /* MapKit.framework */; };
-		4962652B24DA667900032551 /* GrowingIO_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4962652924DA667900032551 /* GrowingIO_ExampleTests.m */; };
 		4962653924DA66B600032551 /* LogOperHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4962652E24DA66B600032551 /* LogOperHelper.m */; };
 		4962653A24DA66B600032551 /* ManualTrackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4962653224DA66B600032551 /* ManualTrackHelper.m */; };
 		4962653B24DA66B600032551 /* MockEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4962653324DA66B600032551 /* MockEventQueue.m */; };
@@ -119,19 +121,11 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		BAF8A6E7309DA7531F2DB120 /* Pods_ExampleTests_Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0263593E2AD01D96A8BFD /* Pods_ExampleTests_Protobuf.framework */; };
 		D11B6BB753D8C3D9D49C5936 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EA2ABB8F1029820A3234DB /* Pods_ExampleTests.framework */; };
 		DB4A57BCAF407C6A96A7BA4F /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3FD24C4FAE13C586766A1 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		34BDE61D275F569300A47BF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6003F582195388D10070C39A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6003F589195388D20070C39A;
-			remoteInfo = Example;
-		};
 		4962652324DA665200032551 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -214,20 +208,11 @@
 		0465312124DD4271002D254C /* GIOHybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIOHybridViewController.h; sourceTree = "<group>"; };
 		0465312224DD4271002D254C /* GIOSimpleUIElemtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIOSimpleUIElemtsViewController.h; sourceTree = "<group>"; };
 		0465312324DD4271002D254C /* GIOActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIOActionSheetViewController.h; sourceTree = "<group>"; };
-		047BF39A24F638BB0028FE94 /* DailyDataLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyDataLimit.h; sourceTree = "<group>"; };
-		047BF39B24F638BB0028FE94 /* FlushIntervalAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlushIntervalAPITest.h; sourceTree = "<group>"; };
-		047BF39C24F638BB0028FE94 /* MediatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediatorTest.m; sourceTree = "<group>"; };
-		047BF39D24F638BB0028FE94 /* TrackViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackViewTest.h; sourceTree = "<group>"; };
-		047BF39E24F638BB0028FE94 /* GetEnableLogTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetEnableLogTest.h; sourceTree = "<group>"; };
-		047BF39F24F638BB0028FE94 /* GetIDsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetIDsTest.m; sourceTree = "<group>"; };
 		047BF3A024F638BB0028FE94 /* GDPRTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPRTest.m; sourceTree = "<group>"; };
-		047BF3A124F638BB0028FE94 /* TrackViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackViewTest.m; sourceTree = "<group>"; };
-		047BF3A224F638BB0028FE94 /* A1TrackAPIMainThreadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A1TrackAPIMainThreadTest.m; sourceTree = "<group>"; };
+		047BF3A124F638BB0028FE94 /* DataCollectionSwitchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectionSwitchTest.m; sourceTree = "<group>"; };
+		047BF3A224F638BB0028FE94 /* TrackAPIMainThreadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackAPIMainThreadTest.m; sourceTree = "<group>"; };
 		047BF3A324F638BB0028FE94 /* FlushIntervalAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlushIntervalAPITest.m; sourceTree = "<group>"; };
-		047BF3A424F638BB0028FE94 /* DailyDataLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDataLimit.m; sourceTree = "<group>"; };
-		047BF3A524F638BB0028FE94 /* GetIDsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetIDsTest.h; sourceTree = "<group>"; };
 		047BF3A624F638BB0028FE94 /* GetEnableLogTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetEnableLogTest.m; sourceTree = "<group>"; };
-		047BF3A724F638BB0028FE94 /* GDPRTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDPRTest.h; sourceTree = "<group>"; };
 		047BF3A824F638BB0028FE94 /* GetConfigurationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetConfigurationTest.m; sourceTree = "<group>"; };
 		047BF3B224F6551B0028FE94 /* A3VisitEventsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A3VisitEventsTest.h; sourceTree = "<group>"; };
 		047BF3B324F6551B0028FE94 /* A3VisitEventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A3VisitEventsTest.m; sourceTree = "<group>"; };
@@ -235,7 +220,19 @@
 		047BF3B624F655A50028FE94 /* ClickEventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickEventsTest.m; sourceTree = "<group>"; };
 		047BF3B724F655A50028FE94 /* A2ViewChangeEventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A2ViewChangeEventsTest.m; sourceTree = "<group>"; };
 		047BF3B824F655A50028FE94 /* A2ViewChangeEventsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A2ViewChangeEventsTest.h; sourceTree = "<group>"; };
-		047BF3B924F655A50028FE94 /* PageEventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageEventsTest.m; sourceTree = "<group>"; };
+		04909E20276ADF83002BAC25 /* CompressionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompressionTest.m; sourceTree = "<group>"; };
+		04909E32276AE771002BAC25 /* DatabaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTest.m; sourceTree = "<group>"; };
+		04909E3F276AE9BA002BAC25 /* EncryptionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptionTest.m; sourceTree = "<group>"; };
+		04A4C02B276C3A7E0056C8C4 /* ProtobufDatabaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtobufDatabaseTest.m; sourceTree = "<group>"; };
+		04A4C02C276C3A7E0056C8C4 /* ProtobufPersistenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtobufPersistenceTest.m; sourceTree = "<group>"; };
+		04A4C02D276C3A7E0056C8C4 /* ProtobufEventsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtobufEventsTest.m; sourceTree = "<group>"; };
+		04A4C02E276C3A7E0056C8C4 /* ProtobufRequestHeaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtobufRequestHeaderTest.m; sourceTree = "<group>"; };
+		04A4C052276C4DED0056C8C4 /* HybridTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridTest.m; sourceTree = "<group>"; };
+		04A4C05D276C502B0056C8C4 /* HybridEventTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridEventTest.m; sourceTree = "<group>"; };
+		04A4C09D277025D70056C8C4 /* GrowingWindowTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingWindowTest.m; sourceTree = "<group>"; };
+		04A4C0BF2771D40B0056C8C4 /* GrowingAnnotationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingAnnotationTest.m; sourceTree = "<group>"; };
+		04A4C0C52772C93D0056C8C4 /* GrowingServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingServiceTest.m; sourceTree = "<group>"; };
+		04A4C0CB2772CBA10056C8C4 /* GrowingModuleTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingModuleTest.m; sourceTree = "<group>"; };
 		04A6FAE024E2BF11006C72F0 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
 		04A6FAF024E662E8006C72F0 /* GIOChildsAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIOChildsAddViewController.h; sourceTree = "<group>"; };
 		04A6FAF124E662E9006C72F0 /* GIOChildsAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIOChildsAddViewController.m; sourceTree = "<group>"; };
@@ -254,10 +251,6 @@
 		34FCFA772760B621000F8A20 /* ProtobufDatabaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProtobufDatabaseTest.m; sourceTree = "<group>"; };
 		4223513325ED0B130082B431 /* WebSocketTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebSocketTests.m; sourceTree = "<group>"; };
 		42ADE26B250B292900CA7268 /* HybridTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridTests.m; sourceTree = "<group>"; };
-		42F753BB256E2E46002F0D37 /* HTTPStubsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPStubsHelper.h; sourceTree = "<group>"; };
-		42F753BC256E2E46002F0D37 /* HTTPStubsHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPStubsHelper.m; sourceTree = "<group>"; };
-		42F753BF256E3256002F0D37 /* SomeEventsTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomeEventsTest.h; sourceTree = "<group>"; };
-		42F753C0256E3256002F0D37 /* SomeEventsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeEventsTest.m; sourceTree = "<group>"; };
 		48BA0D37888FF209ED84CD0E /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4916270D24E157BB00444AF2 /* GIOPresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIOPresentViewController.h; sourceTree = "<group>"; };
 		4916270E24E157BB00444AF2 /* GIOPresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIOPresentViewController.m; sourceTree = "<group>"; };
@@ -266,7 +259,6 @@
 		491D2D8C2500E2D9001CB289 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4962651E24DA665200032551 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4962652824DA667900032551 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4962652924DA667900032551 /* GrowingIO_ExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowingIO_ExampleTests.m; sourceTree = "<group>"; };
 		4962652D24DA66B600032551 /* GrowingTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowingTestHelper.h; sourceTree = "<group>"; };
 		4962652E24DA66B600032551 /* LogOperHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogOperHelper.m; sourceTree = "<group>"; };
 		4962652F24DA66B600032551 /* MockEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockEventQueue.h; sourceTree = "<group>"; };
@@ -306,14 +298,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		34BDE616275F569300A47BF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BAF8A6E7309DA7531F2DB120 /* Pods_ExampleTests_Protobuf.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4962651B24DA665200032551 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,13 +439,10 @@
 			children = (
 				047BF3B524F655A50028FE94 /* ClickEventsTest.h */,
 				047BF3B624F655A50028FE94 /* ClickEventsTest.m */,
-				047BF3B924F655A50028FE94 /* PageEventsTest.m */,
 				047BF3B824F655A50028FE94 /* A2ViewChangeEventsTest.h */,
 				047BF3B724F655A50028FE94 /* A2ViewChangeEventsTest.m */,
 				047BF3B224F6551B0028FE94 /* A3VisitEventsTest.h */,
 				047BF3B324F6551B0028FE94 /* A3VisitEventsTest.m */,
-				42F753BF256E3256002F0D37 /* SomeEventsTest.h */,
-				42F753C0256E3256002F0D37 /* SomeEventsTest.m */,
 			);
 			path = ProtocolAndApi;
 			sourceTree = "<group>";
@@ -469,24 +450,14 @@
 		047BF39924F638BA0028FE94 /* MethodTest */ = {
 			isa = PBXGroup;
 			children = (
-				047BF3A224F638BB0028FE94 /* A1TrackAPIMainThreadTest.m */,
-				047BF39A24F638BB0028FE94 /* DailyDataLimit.h */,
-				047BF3A424F638BB0028FE94 /* DailyDataLimit.m */,
-				047BF39B24F638BB0028FE94 /* FlushIntervalAPITest.h */,
+				047BF3A224F638BB0028FE94 /* TrackAPIMainThreadTest.m */,
 				047BF3A324F638BB0028FE94 /* FlushIntervalAPITest.m */,
-				047BF3A724F638BB0028FE94 /* GDPRTest.h */,
 				047BF3A024F638BB0028FE94 /* GDPRTest.m */,
 				047BF3A824F638BB0028FE94 /* GetConfigurationTest.m */,
-				047BF39E24F638BB0028FE94 /* GetEnableLogTest.h */,
 				047BF3A624F638BB0028FE94 /* GetEnableLogTest.m */,
-				047BF3A524F638BB0028FE94 /* GetIDsTest.h */,
-				047BF39F24F638BB0028FE94 /* GetIDsTest.m */,
-				047BF39C24F638BB0028FE94 /* MediatorTest.m */,
-				047BF39D24F638BB0028FE94 /* TrackViewTest.h */,
-				047BF3A124F638BB0028FE94 /* TrackViewTest.m */,
+				047BF3A124F638BB0028FE94 /* DataCollectionSwitchTest.m */,
 			);
-			name = MethodTest;
-			path = ExampleTests/MethodTest;
+			path = MethodTest;
 			sourceTree = "<group>";
 		};
 		34B93233276765CD00025C94 /* Storyboard */ = {
@@ -677,23 +648,59 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		34BDE600275DFD6A00A47BF2 /* ProtobufTest */ = {
+		04909E13276ADF1A002BAC25 /* CompressionTest */ = {
 			isa = PBXGroup;
 			children = (
-				34BDE601275DFDAA00A47BF2 /* ProtobufEventsTest.m */,
-				34BDE611275F48DE00A47BF2 /* ProtobufPersistenceTest.m */,
-				34BDE613275F541700A47BF2 /* ProtobufRequestHeaderTest.m */,
-				34FCFA772760B621000F8A20 /* ProtobufDatabaseTest.m */,
+				04909E20276ADF83002BAC25 /* CompressionTest.m */,
+			);
+			path = CompressionTest;
+			sourceTree = "<group>";
+		};
+		04909E31276AE754002BAC25 /* DatabaseTest */ = {
+			isa = PBXGroup;
+			children = (
+				04909E32276AE771002BAC25 /* DatabaseTest.m */,
+			);
+			path = DatabaseTest;
+			sourceTree = "<group>";
+		};
+		04909E3E276AE982002BAC25 /* EncryptionTest */ = {
+			isa = PBXGroup;
+			children = (
+				04909E3F276AE9BA002BAC25 /* EncryptionTest.m */,
+			);
+			path = EncryptionTest;
+			sourceTree = "<group>";
+		};
+		04A4C02A276C3A7E0056C8C4 /* ProtobufTest */ = {
+			isa = PBXGroup;
+			children = (
+				04A4C02B276C3A7E0056C8C4 /* ProtobufDatabaseTest.m */,
+				04A4C02C276C3A7E0056C8C4 /* ProtobufPersistenceTest.m */,
+				04A4C02D276C3A7E0056C8C4 /* ProtobufEventsTest.m */,
+				04A4C02E276C3A7E0056C8C4 /* ProtobufRequestHeaderTest.m */,
 			);
 			path = ProtobufTest;
 			sourceTree = "<group>";
 		};
-		34BDE61A275F569300A47BF2 /* ExampleTests-Protobuf */ = {
+		04A4C058276C4DF40056C8C4 /* HybridTest */ = {
 			isa = PBXGroup;
 			children = (
-				34BDE600275DFD6A00A47BF2 /* ProtobufTest */,
+				04A4C052276C4DED0056C8C4 /* HybridTest.m */,
+				04A4C05D276C502B0056C8C4 /* HybridEventTest.m */,
 			);
-			path = "ExampleTests-Protobuf";
+			path = HybridTest;
+			sourceTree = "<group>";
+		};
+		04A4C09C277025B50056C8C4 /* TrackerCoreTest */ = {
+			isa = PBXGroup;
+			children = (
+				04A4C09D277025D70056C8C4 /* GrowingWindowTest.m */,
+				04A4C0BF2771D40B0056C8C4 /* GrowingAnnotationTest.m */,
+				04A4C0C52772C93D0056C8C4 /* GrowingServiceTest.m */,
+				04A4C0CB2772CBA10056C8C4 /* GrowingModuleTest.m */,
+			);
+			path = TrackerCoreTest;
 			sourceTree = "<group>";
 		};
 		42ADE26A250B28BC00CA7268 /* OtherTests */ = {
@@ -708,9 +715,15 @@
 		4962651F24DA665200032551 /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				4962652924DA667900032551 /* GrowingIO_ExampleTests.m */,
+				04A4C09C277025B50056C8C4 /* TrackerCoreTest */,
+				04A4C058276C4DF40056C8C4 /* HybridTest */,
+				04A4C02A276C3A7E0056C8C4 /* ProtobufTest */,
+				04909E13276ADF1A002BAC25 /* CompressionTest */,
+				04909E31276AE754002BAC25 /* DatabaseTest */,
+				04909E3E276AE982002BAC25 /* EncryptionTest */,
 				4962652C24DA66B600032551 /* Helper */,
 				4962652824DA667900032551 /* Info.plist */,
+				047BF39924F638BA0028FE94 /* MethodTest */,
 				047BF38D24F6379B0028FE94 /* ProtocolAndApi */,
 				4962654F24DA66BF00032551 /* ManualTrackTest */,
 				42ADE26A250B28BC00CA7268 /* OtherTests */,
@@ -733,8 +746,6 @@
 				4962653624DA66B600032551 /* NoburPoMeaProCheck.m */,
 				4962653824DA66B600032551 /* ManualTrackHelper.h */,
 				4962653224DA66B600032551 /* ManualTrackHelper.m */,
-				42F753BB256E2E46002F0D37 /* HTTPStubsHelper.h */,
-				42F753BC256E2E46002F0D37 /* HTTPStubsHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -763,8 +774,6 @@
 			children = (
 				046530BA24DD4271002D254C /* Example */,
 				4962651F24DA665200032551 /* ExampleTests */,
-				047BF39924F638BA0028FE94 /* MethodTest */,
-				34BDE61A275F569300A47BF2 /* ExampleTests-Protobuf */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				7D103DEFD312B6151DF0F9EA /* Pods */,
@@ -776,7 +785,6 @@
 			children = (
 				6003F58A195388D20070C39A /* Example.app */,
 				4962651E24DA665200032551 /* ExampleTests.xctest */,
-				34BDE619275F569300A47BF2 /* ExampleTests-Protobuf.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -813,26 +821,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34BDE618275F569300A47BF2 /* ExampleTests-Protobuf */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 34BDE61F275F569300A47BF2 /* Build configuration list for PBXNativeTarget "ExampleTests-Protobuf" */;
-			buildPhases = (
-				BEA8D5D802826D2010210ACC /* [CP] Check Pods Manifest.lock */,
-				34BDE615275F569300A47BF2 /* Sources */,
-				34BDE616275F569300A47BF2 /* Frameworks */,
-				34BDE617275F569300A47BF2 /* Resources */,
-				B12468B6E052B00506FB88A5 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				34BDE61E275F569300A47BF2 /* PBXTargetDependency */,
-			);
-			name = "ExampleTests-Protobuf";
-			productName = "ExampleTests-Protobuf";
-			productReference = 34BDE619275F569300A47BF2 /* ExampleTests-Protobuf.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		4962651D24DA665200032551 /* ExampleTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4962652724DA665200032551 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
@@ -890,12 +878,6 @@
 						CreatedOnToolsVersion = 11.6;
 						ProvisioningStyle = Automatic;
 					};
-					34BDE618275F569300A47BF2 = {
-						CreatedOnToolsVersion = 13.1;
-						DevelopmentTeam = SXBU677CPT;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6003F589195388D20070C39A;
-					};
 					4962651D24DA665200032551 = {
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6003F589195388D20070C39A;
@@ -924,19 +906,11 @@
 				4962651D24DA665200032551 /* ExampleTests */,
 				04A6FAE624E4F0F4006C72F0 /* CodeCheck */,
 				04A6FAEB24E50EE0006C72F0 /* CodeFormat */,
-				34BDE618275F569300A47BF2 /* ExampleTests-Protobuf */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		34BDE617275F569300A47BF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4962651C24DA665200032551 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1029,7 +1003,9 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GrowingAnalytics-06ecc7cf/GrowingAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/GrowingAnalytics/GrowingAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -1053,27 +1029,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExampleTests/Pods-ExampleTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GrowingAnalytics-e2e89842/GrowingAnalytics.framework",
-				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrowingAnalytics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleTests/Pods-ExampleTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B12468B6E052B00506FB88A5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ExampleTests-Protobuf/Pods-ExampleTests-Protobuf-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GrowingAnalytics-06ecc7cf/GrowingAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/GrowingAnalytics/GrowingAnalytics.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
 			);
@@ -1085,29 +1041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleTests-Protobuf/Pods-ExampleTests-Protobuf-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEA8D5D802826D2010210ACC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ExampleTests-Protobuf-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleTests/Pods-ExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D82F3128F826E62B39F8A14D /* [CP] Check Pods Manifest.lock */ = {
@@ -1135,51 +1069,46 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		34BDE615275F569300A47BF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34BDE623275F56CC00A47BF2 /* ProtobufPersistenceTest.m in Sources */,
-				34BDE624275F56CF00A47BF2 /* ProtobufRequestHeaderTest.m in Sources */,
-				34FCFA792760B627000F8A20 /* ProtobufDatabaseTest.m in Sources */,
-				34BDE622275F56C800A47BF2 /* ProtobufEventsTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4962651A24DA665200032551 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047BF3A924F638BB0028FE94 /* MediatorTest.m in Sources */,
 				4962653B24DA66B600032551 /* MockEventQueue.m in Sources */,
 				4962653924DA66B600032551 /* LogOperHelper.m in Sources */,
 				4962653D24DA66B600032551 /* NoburPoMeaProCheck.m in Sources */,
 				4962653A24DA66B600032551 /* ManualTrackHelper.m in Sources */,
 				047BF3BB24F655A50028FE94 /* A2ViewChangeEventsTest.m in Sources */,
 				047BF3B424F6551B0028FE94 /* A3VisitEventsTest.m in Sources */,
-				047BF3AA24F638BB0028FE94 /* GetIDsTest.m in Sources */,
 				047BF3B024F638BB0028FE94 /* GetEnableLogTest.m in Sources */,
+				04A4C032276C3A7E0056C8C4 /* ProtobufRequestHeaderTest.m in Sources */,
 				4962653E24DA66B600032551 /* NSURLSession+TestHook.m in Sources */,
 				4962653C24DA66B600032551 /* GrowingTestHelper.m in Sources */,
 				4962657124DA66BF00032551 /* CustomEventsTest.m in Sources */,
-				047BF3AF24F638BB0028FE94 /* DailyDataLimit.m in Sources */,
+				04A4C09E277025D70056C8C4 /* GrowingWindowTest.m in Sources */,
+				04A4C031276C3A7E0056C8C4 /* ProtobufEventsTest.m in Sources */,
+				04A4C0CC2772CBA10056C8C4 /* GrowingModuleTest.m in Sources */,
+				04A4C030276C3A7E0056C8C4 /* ProtobufPersistenceTest.m in Sources */,
+				04A4C02F276C3A7E0056C8C4 /* ProtobufDatabaseTest.m in Sources */,
 				4962656F24DA66BF00032551 /* ConversionVariablesEventsTest.m in Sources */,
-				047BF3AC24F638BB0028FE94 /* TrackViewTest.m in Sources */,
+				047BF3AC24F638BB0028FE94 /* DataCollectionSwitchTest.m in Sources */,
+				04A4C05E276C502B0056C8C4 /* HybridEventTest.m in Sources */,
 				4223513425ED0B130082B431 /* WebSocketTests.m in Sources */,
 				047BF3B124F638BB0028FE94 /* GetConfigurationTest.m in Sources */,
+				04A4C0C02771D40B0056C8C4 /* GrowingAnnotationTest.m in Sources */,
+				04909E33276AE771002BAC25 /* DatabaseTest.m in Sources */,
 				047BF3AB24F638BB0028FE94 /* GDPRTest.m in Sources */,
+				04909E21276ADF83002BAC25 /* CompressionTest.m in Sources */,
 				4962657224DA66BF00032551 /* CS1ManualTrackTest.m in Sources */,
 				047BF3AE24F638BB0028FE94 /* FlushIntervalAPITest.m in Sources */,
-				4962652B24DA667900032551 /* GrowingIO_ExampleTests.m in Sources */,
-				42F753C1256E3256002F0D37 /* SomeEventsTest.m in Sources */,
+				04909E40276AE9BA002BAC25 /* EncryptionTest.m in Sources */,
 				047BF3BA24F655A50028FE94 /* ClickEventsTest.m in Sources */,
-				047BF3AD24F638BB0028FE94 /* A1TrackAPIMainThreadTest.m in Sources */,
+				04A4C053276C4DED0056C8C4 /* HybridTest.m in Sources */,
+				047BF3AD24F638BB0028FE94 /* TrackAPIMainThreadTest.m in Sources */,
 				4962657524DA66BF00032551 /* PageAttributesEventsTest.m in Sources */,
-				047BF3BC24F655A50028FE94 /* PageEventsTest.m in Sources */,
 				4962657324DA66BF00032551 /* LoginUserAttributerEventsTest.m in Sources */,
-				42F753BD256E2E46002F0D37 /* HTTPStubsHelper.m in Sources */,
 				42ADE26C250B292900CA7268 /* HybridTests.m in Sources */,
 				4962657024DA66BF00032551 /* A4VisitorAttributesEventsTest.m in Sources */,
+				04A4C0C62772C93D0056C8C4 /* GrowingServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,11 +1158,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		34BDE61E275F569300A47BF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* Example */;
-			targetProxy = 34BDE61D275F569300A47BF2 /* PBXContainerItemProxy */;
-		};
 		4962652424DA665200032551 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Example */;
@@ -1290,95 +1214,6 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		34BDE620275F569300A47BF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55A57B0E0E4539D2E35E2090 /* Pods-ExampleTests-Protobuf.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = SXBU677CPT;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "GrowingIO.GrowingIOTest-.ExampleTests-Protobuf";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-			};
-			name = Debug;
-		};
-		34BDE621275F569300A47BF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB644A455D9AD405F6D4995C /* Pods-ExampleTests-Protobuf.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = SXBU677CPT;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "GrowingIO.GrowingIOTest-.ExampleTests-Protobuf";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
 		};
@@ -1553,7 +1388,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "GrowingIO.GrowingIOTest-";
+				PRODUCT_BUNDLE_IDENTIFIER = uni.UNIC8F0C05;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -1576,7 +1411,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "GrowingIO.GrowingIOTest-";
+				PRODUCT_BUNDLE_IDENTIFIER = uni.UNIC8F0C05;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -1601,15 +1436,6 @@
 			buildConfigurations = (
 				04A6FAED24E50EE0006C72F0 /* Debug */,
 				04A6FAEE24E50EE0006C72F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		34BDE61F275F569300A47BF2 /* Build configuration list for PBXNativeTarget "ExampleTests-Protobuf" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				34BDE620275F569300A47BF2 /* Debug */,
-				34BDE621275F569300A47BF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

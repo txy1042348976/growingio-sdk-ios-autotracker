@@ -8,12 +8,12 @@
 
 #import "LoginUserAttributerEventsTest.h"
 
+#import "GrowingAutotrackEventType.h"
+#import "GrowingAutotracker.h"
 #import "GrowingTracker.h"
 #import "LogOperHelper.h"
 #import "ManualTrackHelper.h"
 #import "MockEventQueue.h"
-#import "GrowingAutotracker.h"
-#import "GrowingAutotrackEventType.h"
 
 @implementation LoginUserAttributerEventsTest
 
@@ -59,13 +59,13 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getValueErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariable为nil,日志检测测试通过-----passed");
-//    } else {
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariable为nil,日志检测测试失败---Failed");
-//        XCTAssertEqual(1, 0);
-//    }
+    //    if (chres) {
+    //        XCTAssertEqual(1, 1);
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariable为nil,日志检测测试通过-----passed");
+    //    } else {
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariable为nil,日志检测测试失败---Failed");
+    //        XCTAssertEqual(1, 0);
+    //    }
 }
 
 - (void)test3PplEmpty {
@@ -108,10 +108,11 @@
         // NSLog(@"Check Result:%@",chres);
         XCTAssertEqualObjects(chres[@"KeysCheck"][@"chres"], @"Passed");
         XCTAssertEqualObjects(chres[@"ProCheck"][@"chres"], @"same");
-        TestSuccess(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,发送正常数据测试通过-----passed");
+        TestSuccess(
+            @"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,发送正常数据测试通过-----passed");
     } else {
         TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,发送正常数据测试失败:%@",
-              pplEventArray);
+                   pplEventArray);
         XCTAssertEqual(1, 0);
     }
 }
@@ -135,7 +136,8 @@
         XCTAssertEqualObjects(chres[@"ProCheck"][@"chres"], @"same");
         TestSuccess(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,更新数据测试通过-----passed");
     } else {
-        TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,更新数据测试失败:%@", pplEventArray);
+        TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andStringValue,更新数据测试失败:%@",
+                   pplEventArray);
         XCTAssertEqual(1, 0);
     }
 }
@@ -153,13 +155,13 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getFlagErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为空日志检测测试通过-----passed");
-//    } else {
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为空日志检测测试失败---Failed");
-//        XCTAssertEqual(1, 0);
-//    }
+    //    if (chres) {
+    //        XCTAssertEqual(1, 1);
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为空日志检测测试通过-----passed");
+    //    } else {
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为空日志检测测试失败---Failed");
+    //        XCTAssertEqual(1, 0);
+    //    }
 }
 
 - (void)test7SpvAndStrKeyNil {
@@ -176,14 +178,14 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getValueErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为nil日志检测测试通过-----passed");
-//    } else {
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为nil日志检测测试失败---Failed");
-//        XCTAssertEqual(1, 0);
-//    }
+    //    if (chres) {
+    //        XCTAssertEqual(1, 1);
+    //        NSLog(
+    //            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为nil日志检测测试通过-----passed");
+    //    } else {
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Key为nil日志检测测试失败---Failed");
+    //        XCTAssertEqual(1, 0);
+    //    }
 }
 
 - (void)test8SpvAndStrValueNil {
@@ -200,16 +202,16 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getValueErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Nil日志检测测试通过-----"
-//            @"passed");
-//    } else {
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Nil日志检测测试失败---Failed");
-//        XCTAssertEqual(1, 0);
-//    }
+    //    if (chres) {
+    //        XCTAssertEqual(1, 1);
+    //        NSLog(
+    //            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Nil日志检测测试通过-----"
+    //            @"passed");
+    //    } else {
+    //        NSLog(
+    //            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Nil日志检测测试失败---Failed");
+    //        XCTAssertEqual(1, 0);
+    //    }
 }
 
 - (void)test9SpvAndStrValueEmpty {
@@ -225,17 +227,6 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getValueErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Empty日志检测测试通过-----"
-//            @"passed");
-//    } else {
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andStringValue,Value为Empty日志检测测试失败---"
-//            @"Failed");
-//        XCTAssertEqual(1, 0);
-//    }
 }
 - (void)test10SpvAndNum {
     /**
@@ -258,7 +249,8 @@
         XCTAssertEqualObjects(chres[@"ProCheck"][@"chres"], @"same");
         TestSuccess(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue正整数测试通过-----passed");
     } else {
-        TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue正整数测试失败:%@", pplEventArray);
+        TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue正整数测试失败:%@",
+                   pplEventArray);
         XCTAssertEqual(1, 0);
     }
 }
@@ -282,10 +274,11 @@
         // NSLog(@"Check Result:%@",chres);
         XCTAssertEqualObjects(chres[@"KeysCheck"][@"chres"], @"Passed");
         XCTAssertEqualObjects(chres[@"ProCheck"][@"chres"], @"same");
-        TestSuccess(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue更新为浮点数测试通过-----passed");
+        TestSuccess(
+            @"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue更新为浮点数测试通过-----passed");
     } else {
         TestFailed(@"LOGIN_USER_ATTRIBUTES事件,setPeopleVariableWithKey:andNumberValue更新为浮点数测试失败:%@",
-              pplEventArray);
+                   pplEventArray);
         XCTAssertEqual(1, 0);
     }
 }
@@ -303,13 +296,13 @@
     Boolean chres = [LogOperHelper CheckLogOutput:[LogOperHelper getFlagErrNsLog]];
     //恢复日志重定向
     [LogOperHelper redirectLogBack];
-//    if (chres) {
-//        XCTAssertEqual(1, 1);
-//        NSLog(
-//            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andNumberValue，Key为空日志检测测试通过-----passed");
-//    } else {
-//        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andNumberValue，Key为空日志检测测试失败---Failed");
-//        XCTAssertEqual(1, 0);
-//    }
+    //    if (chres) {
+    //        XCTAssertEqual(1, 1);
+    //        NSLog(
+    //            @"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andNumberValue，Key为空日志检测测试通过-----passed");
+    //    } else {
+    //        NSLog(@"LOGIN_USER_ATTRIBUTES事件，setPeopleVariableWithKey:andNumberValue，Key为空日志检测测试失败---Failed");
+    //        XCTAssertEqual(1, 0);
+    //    }
 }
 @end

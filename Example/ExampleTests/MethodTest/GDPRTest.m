@@ -5,12 +5,16 @@
 //  Created by GrowingIO on 2018/6/19.
 //  Copyright (C) 2018 Beijing Yishu Technology Co., Ltd.
 //
+#import <KIF/KIF.h>
+#import <XCTest/XCTest.h>
 
-#import "GDPRTest.h"
-
+#import "GrowingAutotracker.h"
 #import "GrowingTracker.h"
 #import "MockEventQueue.h"
-#import "GrowingAutotracker.h"
+
+@interface GDPRTest : KIFTestCase
+
+@end
 
 @implementation GDPRTest
 

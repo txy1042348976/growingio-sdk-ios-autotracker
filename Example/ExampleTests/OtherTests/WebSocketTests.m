@@ -17,27 +17,29 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-
-#import <XCTest/XCTest.h>
 #import <KIF/KIF.h>
-#import "UIImage+GrowingHelper.h"
-#import "UIWindow+GrowingHelper.h"
-#import "GrowingStatusBarEventManager.h"
-#import "GrowingHybridPageEvent.h"
+#import <WebKit/WebKit.h>
+#import <XCTest/XCTest.h>
+
+#import "GrowingDeepLinkHandler.h"
+#import "GrowingDeviceInfo.h"
+#import "GrowingFileStorage.h"
 #import "GrowingHybridCustomEvent.h"
-#import "GrowingPageCustomEvent.h"
+#import "GrowingHybridPageEvent.h"
 #import "GrowingHybridViewElementEvent.h"
 #import "GrowingLoginRequest.h"
 #import "GrowingNodeItem.h"
-#import "GrowingDeepLinkHandler.h"
-#import "UIViewController+GrowingNode.h"
+#import "GrowingPageCustomEvent.h"
+#import "GrowingStatusBarEventManager.h"
 #import "UICollectionView+GrowingNode.h"
+#import "UIImage+GrowingHelper.h"
 #import "UIView+GrowingNode.h"
 #import "GIOFirstViewController.h"
 #import "GrowingDeviceInfo.h"
 #import "GrowingFileStorage.h"
 #import <WebKit/WebKit.h>
-
+#import "UIViewController+GrowingNode.h"
+#import "UIWindow+GrowingHelper.h"
 
 #define KEY_PROTOCOL_TYPE @"UnitTest-protocoltype"
 #define KEY_QUERY @"UnitTest-query"
@@ -47,7 +49,7 @@
 #define KEY_TIMESTAMP 11111111
 #define KEY_PAGE_SHOW_TIMESTAMP 22222222
 #define KEY_DOMAIN @"UnitTest-domain"
-#define KEY_ATTRIBUTES @{@"UnitTest-attributes":@"TEST"}
+#define KEY_ATTRIBUTES @{@"UnitTest-attributes" : @"TEST"}
 #define KEY_REFERRAL_PAGE @"UnitTest-refferalpage"
 #define KEY_EVENT_NAME @"UnitTest-eventname"
 
@@ -65,88 +67,89 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-
--(void)testImageHelper{
-    UIImage *image = [[UIImage alloc]init];
+- (void)testImageHelper {
+    UIImage *image = [[UIImage alloc] init];
     NSData *data = [image growingHelper_JPEG:0.8];
     [image growingHelper_PNG];
     [image growingHelper_Base64PNG];
     [image growingHelper_Base64JPEG:0.9];
     [image growingHelper_getSubImage:CGRectMake(0.8, 0.8, 0.8, 0.8)];
-    
 }
--(void)testUIWindowHelper{
+- (void)testUIWindowHelper {
     [UIWindow growingHelper_screenshotWithWindows:nil andMaxScale:0.8];
     [UIWindow growingHelper_screenshotWithWindows:nil andMaxScale:0.8 block:nil];
 }
 
--(void)testGrowingStatusBarEventManager{
+- (void)testGrowingStatusBarEventManager {
     [[GrowingStatusBarEventManager sharedInstance] dispatchTapStatusBar:nil];
     [[GrowingStatusBarEventManager sharedInstance] addStatusBarObserver:self];
     [[GrowingStatusBarEventManager sharedInstance] removeStatusBarObserver:self];
 }
--(void)testGrowingHybridPageEvent{
+- (void)testGrowingHybridPageEvent {
     [GrowingHybridPageEvent builder];
-    
+
     GrowingHybridPageEvent.builder.setProtocolType(KEY_PROTOCOL_TYPE)
-    .setQuery(KEY_QUERY)
-    .setTitle(KEY_TITLE)
-    .setReferralPage(KEY_REFERRAL_PAGE)
-    .setPath(KEY_PATH)
-    .setTimestamp(KEY_TIMESTAMP)
-    .setDomain(KEY_DOMAIN);
+        .setQuery(KEY_QUERY)
+        .setTitle(KEY_TITLE)
+        .setReferralPage(KEY_REFERRAL_PAGE)
+        .setPath(KEY_PATH)
+        .setTimestamp(KEY_TIMESTAMP)
+        .setDomain(KEY_DOMAIN);
 }
 
-
--(void)testGrowingHybridCustomEvent{
+- (void)testGrowingHybridCustomEvent {
     [GrowingHybridCustomEvent builder];
     GrowingHybridCustomEvent.builder.setQuery(KEY_QUERY)
-    .setPath(KEY_PATH)
-    .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP)
-    .setAttributes(KEY_ATTRIBUTES)
-    .setEventName(KEY_EVENT_NAME)
-    .setDomain(KEY_DOMAIN);
+        .setPath(KEY_PATH)
+        .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP)
+        .setAttributes(KEY_ATTRIBUTES)
+        .setEventName(KEY_EVENT_NAME)
+        .setDomain(KEY_DOMAIN);
 }
 
--(void)testGrowingPageCustomEvent{
+- (void)testGrowingPageCustomEvent {
     [GrowingPageCustomEvent builder];
-    [GrowingPageCustomEvent builder].setPath(KEY_PATH)
-    .setEventName(KEY_EVENT_NAME)
-    .setAttributes(KEY_ATTRIBUTES)
-    .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP);
+    [GrowingPageCustomEvent builder]
+        .setPath(KEY_PATH)
+        .setEventName(KEY_EVENT_NAME)
+        .setAttributes(KEY_ATTRIBUTES)
+        .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP);
 }
 
--(void)testGrowingHybridViewElementEvent{
+- (void)testGrowingHybridViewElementEvent {
     [GrowingHybridViewElementEvent builder];
     GrowingHybridViewElementEvent.builder.setQuery(KEY_QUERY)
-    .setPath(KEY_PATH)
-    .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP)
-    .setHyperlink(@"Hyperlink")
-    .setEventType(@"KEY_EVENT_Type")
-    .setXpath(@"Xpath")
-    .setIndex(0)
-    .setDomain(KEY_DOMAIN);
+        .setPath(KEY_PATH)
+        .setPageShowTimestamp(KEY_PAGE_SHOW_TIMESTAMP)
+        .setHyperlink(@"Hyperlink")
+        .setEventType(@"KEY_EVENT_Type")
+        .setXpath(@"Xpath")
+        .setIndex(0)
+        .setDomain(KEY_DOMAIN);
 }
 
--(void)testGrowingLoginRequest{
-    
-    [GrowingLoginRequest loginRequestWithHeader:@{@"header":@"h1"} parameter:@{@"parameter":@"p1"}];
-    [GrowingWebSocketRequest webSocketRequestWithParameter:@{@"param":@"p2"}];
+- (void)testGrowingLoginRequest {
+    [GrowingLoginRequest loginRequestWithHeader:@{@"header" : @"h1"} parameter:@{@"parameter" : @"p1"}];
+    [GrowingWebSocketRequest webSocketRequestWithParameter:@{@"param" : @"p2"}];
 }
--(void)testGrowingNodeItem{
+- (void)testGrowingNodeItem {
     [GrowingNodeItemComponent indexNotFound];
     [GrowingNodeItemComponent indexNotDefine];
-    
 }
--(void)testGrowingDeepLinkHandler{
-    NSURL *url1 = [NSURL URLWithString:@"http://test.growingio.com/oauth2/qrcode.html?URLScheme=growing.test&productId=test&circleRoomNumber=test0f4cfa51ff3f&serviceType=circle&appName=GrowingIO&wsUrl=    ws://cdp.growingio.com/app/test/circle/test0f4cfa51ff3f"];
+- (void)testGrowingDeepLinkHandler {
+    NSURL *url1 =
+        [NSURL URLWithString:
+                   @"http://test.growingio.com/oauth2/"
+                   @"qrcode.html?URLScheme=growing.test&productId=test&circleRoomNumber=test0f4cfa51ff3f&serviceType="
+                   @"circle&appName=GrowingIO&wsUrl=    ws://cdp.growingio.com/app/test/circle/test0f4cfa51ff3f"];
 
     [GrowingDeepLinkHandler handlerUrl:url1];
 }
+
 -(void)testGrowingUIViewController{
     UIViewController *vc1 = [[GIOFirstViewController alloc]init];
     [vc1 performSelector:@selector(growingNodeParent)];
-    //growingAppearStateCanTrack
+    // growingAppearStateCanTrack
     [vc1 performSelector:@selector(growingAppearStateCanTrack)];
     [vc1 performSelector:@selector(growingNodeDonotTrack)];
     [vc1 performSelector:@selector(growingNodeDonotCircle)];
@@ -162,10 +165,9 @@
     [vc1 performSelector:@selector(growingNodeIndexPath)];
     [vc1 performSelector:@selector(growingNodeChilds)];
     [vc1 performSelector:@selector(growingPageIgnorePolicy)];
-
 }
 
--(void)testGrowingUICollectionView{
+- (void)testGrowingUICollectionView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     //设置collectionView滚动方向
     //[layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
@@ -174,8 +176,9 @@
     //该方法也可以设置itemSize
     layout.itemSize = CGSizeMake(110, 150);
 
-    UICollectionView *view1 = [[UICollectionView alloc] initWithFrame:UIScreen.mainScreen.accessibilityFrame collectionViewLayout:layout];
-    UICollectionViewCell *cell = [[UICollectionViewCell alloc]init];
+    UICollectionView *view1 = [[UICollectionView alloc] initWithFrame:UIScreen.mainScreen.accessibilityFrame
+                                                 collectionViewLayout:layout];
+    UICollectionViewCell *cell = [[UICollectionViewCell alloc] init];
     [view1 performSelector:@selector(growingNodeChilds)];
     [cell performSelector:@selector(growingNodeKeyIndex)];
     [cell performSelector:@selector(growingNodeIndexPath)];
@@ -188,11 +191,10 @@
     [cell performSelector:@selector(growingNodeDonotCircle)];
     [cell performSelector:@selector(growingNodeUserInteraction)];
     [cell performSelector:@selector(growingViewUserInteraction)];
-
 }
 
--(void)testGrowingUIView{
-    UIView *view2 = [[UIView alloc]init];
+- (void)testGrowingUIView {
+    UIView *view2 = [[UIView alloc] init];
     [view2 performSelector:@selector(growingNodeIndexPath)];
     [view2 performSelector:@selector(growingNodeKeyIndex)];
     [view2 performSelector:@selector(growingNodeSubPath)];
@@ -218,27 +220,22 @@
     [view2 performSelector:@selector(growingIMPTrackVariable)];
     [view2 performSelector:@selector(growingViewIgnorePolicy)];
     [view2 performSelector:@selector(growingStopTrackImpression)];
-
 }
 
-
--(void)testGrowingDeviceInfo{
+- (void)testGrowingDeviceInfo {
     [[GrowingDeviceInfo currentDeviceInfo] deviceInfoReported];
     [[GrowingDeviceInfo currentDeviceInfo] pasteboardDeeplinkReported];
     [GrowingDeviceInfo deviceScreenSize];
 }
 
-
--(void)testGrowingFileStorage{
-    [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] resetAll];
-    [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] removeKey:@"testKey"];
-    [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] setArray:@[@"testa",@"testb"] forKey:@"testKey"];
-    [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] arrayForKey:@"testKey"];
-    [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] setNumber:@1 forKey:@"testKeyNum"];
-    XCTAssertNotNil( [[[GrowingFileStorage alloc]initWithName:@"testGrowingFileStorage"] numberForKey:@"testKeyNum"]);
-
-
-
+- (void)testGrowingFileStorage {
+    [[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] resetAll];
+    [[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] removeKey:@"testKey"];
+    [[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] setArray:@[ @"testa", @"testb" ]
+                                                                           forKey:@"testKey"];
+    [[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] arrayForKey:@"testKey"];
+    [[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] setNumber:@1 forKey:@"testKeyNum"];
+    XCTAssertNotNil([[[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"] numberForKey:@"testKeyNum"]);
 }
 
 @end
