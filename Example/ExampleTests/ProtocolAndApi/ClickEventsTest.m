@@ -40,7 +40,7 @@
     [[viewTester usingLabel:@"ShowAlert"] tap];
     [[viewTester usingLabel:@"取消"] tap];
     [tester waitForTimeInterval:2];
-    NSArray *clickEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CLICK"];
+    NSArray *clickEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CLICK"];
     //是否发送click事件，需要确认
     if (clickEventArray.count >= 2) {
         //判断单击列表是否正确
@@ -85,7 +85,7 @@
     [MockEventQueue.sharedQueue cleanQueue];
     [[viewTester usingLabel:@"GIODontTrackBtn"] tap];
     [tester waitForTimeInterval:3];
-    NSArray *clickEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CLICK"];
+    NSArray *clickEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CLICK"];
     if (clickEventArray == NULL) {
         XCTAssertEqual(1, 1);
         NSLog(@"setDataCollectionEnabled:NO，不发送click事件测试通过---Passed！");
@@ -115,7 +115,7 @@
     [[viewTester usingLabel:@"Fire"] tap];
     [tester waitForTimeInterval:1];
     [[viewTester usingLabel:@"好的"] tap];
-    NSArray *clickEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CLICK"];
+    NSArray *clickEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CLICK"];
     if (clickEventArray.count >= 4) {
         // TODO:3.0 测量协议修改
         XCTAssertEqual(1, 1);
@@ -143,7 +143,7 @@
     [[viewTester usingLabel:@"Food"] tap];
     [[viewTester usingLabel:@"好的"] tap];
     [tester waitForTimeInterval:2];
-    NSArray *clickEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CLICK"];
+    NSArray *clickEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CLICK"];
     if (clickEventArray.count > 4) {
         NSDictionary *chevent = [clickEventArray objectAtIndex:clickEventArray.count - 2];
         XCTAssertEqualObjects(chevent[@"textValue"], @"Food");
@@ -170,7 +170,7 @@
     [[viewTester usingLabel:@"Fire"] tap];
     [tester waitForTimeInterval:2];
     [[viewTester usingLabel:@"好的"] tap];
-    NSArray *clickEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CLICK"];
+    NSArray *clickEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CLICK"];
     if (clickEventArray.count > 3) {
         NSDictionary *chevent = [clickEventArray objectAtIndex:clickEventArray.count - 2];
         XCTAssertEqualObjects(chevent[@"textValue"], @"Fire");

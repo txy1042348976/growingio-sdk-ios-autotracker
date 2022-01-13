@@ -30,7 +30,7 @@
         [tester waitForTimeInterval:1];
         [tester tapViewWithAccessibilityLabel:@"secondTF"];
         [tester waitForTimeInterval:2];
-        NSArray *chngEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CHANGE"];
+        NSArray *chngEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CHANGE"];
         if (chngEventArray.count > 0) {
             //判断单击列表是否正确
             NSDictionary *chevent = [chngEventArray objectAtIndex:chngEventArray.count - 1];
@@ -57,7 +57,7 @@
         NSArray *date = @[ @"June", @"10", @"2019" ];
         [tester selectDatePickerValue:date];
         [tester waitForTimeInterval:2];
-        NSArray *chngEventArray = [MockEventQueue.sharedQueue eventsFor:@"VIEW_CHANGE"];
+        NSArray *chngEventArray = [MockEventQueue.sharedQueue rawEventsFor:@"VIEW_CHANGE"];
         if (chngEventArray == NULL) {
             XCTAssertEqual(1, 1);
             NSLog(@"日期控件操作，不发送chng事件测试通过---Passed！");
