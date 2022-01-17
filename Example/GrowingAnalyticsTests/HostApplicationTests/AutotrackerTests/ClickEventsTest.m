@@ -9,9 +9,8 @@
 #import <KIF/KIF.h>
 
 #import "GrowingAutotracker.h"
-#import "GrowingTracker.h"
 #import "MockEventQueue.h"
-#import "NoburPoMeaProCheck.h"
+#import "ManualTrackHelper.h"
 
 @interface ClickEventsTest : KIFTestCase
 
@@ -50,8 +49,7 @@
     if (clickEventArray.count >= 2) {
         //判断单击列表是否正确
         NSDictionary *chevent = [clickEventArray objectAtIndex:clickEventArray.count - 1];
-        NSDictionary *clkchr = [NoburPoMeaProCheck clickEventCheck:chevent];
-        NSLog(@"Check Result:%@", clkchr);
+        XCTAssertTrue([ManualTrackHelper viewClickEventCheck:chevent]);
         // 校验最后一次点击事件 pageName  textValue  xpath 一致
         XCTAssertEqualObjects(chevent[@"path"],
                               @"/UITabBarController/UINavigationController[1]/GIOLabelAttributeViewController[0]");
@@ -62,7 +60,6 @@
             @"/Page/UIAlertController/UIView[0]/_UIAlertControllerInterfaceActionGroupView[0]/UIView[0]/"
             @"_UIInterfaceActionRepresentationsSequenceView[0]/_UIInterfaceActionSeparatableSequenceView[0]/"
             @"UIStackView[0]/_UIInterfaceActionCustomViewRepresentationView[1]/Button[0]");
-        XCTAssertEqual(clkchr[@"KeysCheck"][@"chres"], @"Passed");
         NSDictionary *chevent2 = [clickEventArray objectAtIndex:clickEventArray.count - 2];
         XCTAssertEqualObjects(chevent2[@"path"],
                               @"/UITabBarController/UINavigationController[1]/GIOLabelAttributeViewController[0]");

@@ -45,9 +45,9 @@ PODS:
     - GrowingAnalytics/WebSocket
   - GrowingAnalytics/WebSocket (3.3.3):
     - GrowingAnalytics/TrackerCore
-  - KIF (3.8.5):
-    - KIF/Core (= 3.8.5)
-  - KIF/Core (3.8.5)
+  - KIF (3.8.6):
+    - KIF/Core (= 3.8.6)
+  - KIF/Core (3.8.6)
   - Protobuf (3.19.1)
   - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
@@ -63,7 +63,7 @@ DEPENDENCIES:
   - SDCycleScrollView (~> 1.75)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - KIF
     - Protobuf
     - SDCycleScrollView
@@ -75,11 +75,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GrowingAnalytics: a9962929c1e8366c511eb0247b77bbf04b1bfffc
-  KIF: b7fe836710720f84e4804767fba0a35ffc770b78
+  KIF: e2e1bab222b6c9523a0a88caab31f8524fe82404
   Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: 8fc1fa636a2a0a1e82f315cabdfe156cf4605864
+PODFILE CHECKSUM: 688f7feb2a6517dbc4a83fe9a13cbd26040a20c1
 
 COCOAPODS: 1.11.2

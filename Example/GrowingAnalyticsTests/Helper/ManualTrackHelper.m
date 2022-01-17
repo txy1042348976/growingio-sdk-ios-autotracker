@@ -8,22 +8,9 @@
 
 #import "ManualTrackHelper.h"
 
-#import "NoburPoMeaProCheck.h"
-
 @implementation ManualTrackHelper
 
 #pragma mark - Public Methods
-
-//判断字典dicts是否包含关键字ckchar
-+ (Boolean *)CheckContainsKey:(NSDictionary *)dicts:(NSString *)ckchar {
-    NSArray *allkeys = dicts.allKeys;
-    for (int i = 0; i < allkeys.count; i++) {
-        if ([allkeys[i] isEqualToString:ckchar]) {
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
 
 + (BOOL)visitEventCheck:(NSDictionary *)event {
     if (event.count == 0) {
@@ -75,6 +62,15 @@
     return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event];
 }
 
++ (BOOL)pageEventCheck:(NSDictionary *)event {
+    if (event.count == 0) {
+        return NO;
+    }
+    NSArray *protocol = [self.context arrayByAddingObjectsFromArray:@[@"path", @"orientation"]];
+    NSArray *optional = @[@"title", @"referralPage", @"query", @"protocolType"];
+    return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event optional:optional];
+}
+
 + (BOOL)pageAttributesEventCheck:(NSDictionary *)event {
     if (event.count == 0) {
         return NO;
@@ -84,13 +80,40 @@
     return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event optional:optional];
 }
 
++ (BOOL)viewClickEventCheck:(NSDictionary *)event {
+    if (event.count == 0) {
+        return NO;
+    }
+    NSArray *protocol = [self.context arrayByAddingObjectsFromArray:@[@"path", @"pageShowTimestamp", @"xpath"]];
+    NSArray *optional = @[@"textValue", @"index", @"hyperlink", @"query"];
+    return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event optional:optional];
+}
+
++ (BOOL)viewChangeEventCheck:(NSDictionary *)event {
+    if (event.count == 0) {
+        return NO;
+    }
+    NSArray *protocol = [self.context arrayByAddingObjectsFromArray:@[@"path", @"pageShowTimestamp", @"xpath"]];
+    NSArray *optional = @[@"textValue", @"index", @"hyperlink", @"query"];
+    return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event optional:optional];
+}
+
++ (BOOL)hybridFormSubmitEventCheck:(NSDictionary *)event {
+    if (event.count == 0) {
+        return NO;
+    }
+    NSArray *protocol = [self.context arrayByAddingObjectsFromArray:@[@"path", @"pageShowTimestamp", @"xpath"]];
+    NSArray *optional = @[@"index", @"query"];
+    return [self protocolCheck:event protocol:protocol] && [self emptyPropertyCheck:event optional:optional];
+}
+
 #pragma mark - Private Methods
 
 /// 与测量协议对比，验证事件数据完整性
 /// @param event 事件
 /// @param protocol 测量协议字段数组
 + (BOOL)protocolCheck:(NSDictionary *)event protocol:(NSArray *)protocol {
-    NSDictionary *dic = [NoburPoMeaProCheck compareArray:protocol toAnother:event.allKeys];
+    NSDictionary *dic = [ManualTrackHelper compareArray:protocol toAnother:event.allKeys];
     if ([dic[@"chres"] isEqualToString:@"same"]) {
         return YES;
     } else if ([dic[@"chres"] isEqualToString:@"different"] && ((NSArray *)dic[@"reduce"]).count == 0) {
@@ -110,7 +133,7 @@
 /// @param event 事件
 /// @param optional 其他可为空的字段数组
 + (BOOL)emptyPropertyCheck:(NSDictionary *)event optional:(NSArray *)optional {
-    NSDictionary *dic = [NoburPoMeaProCheck checkDictEmpty:event];
+    NSDictionary *dic = [ManualTrackHelper checkDictEmpty:event];
     if ([dic[@"chres"] isEqualToString:@"Passed"]) {
         return YES;
     } else if ([dic[@"chres"] isEqualToString:@"Failed"]) {
@@ -142,6 +165,75 @@
     } else {
         return NO;
     }
+}
+
+// 字段串是否为空
++ (BOOL)isBlankString:(NSString *)aStr {
+    if (!aStr) {
+        return YES;
+    }
+    if ([aStr isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if (!aStr.length) {
+        return YES;
+    }
+    NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmedStr = [aStr stringByTrimmingCharactersInSet:set];
+    if (!trimmedStr.length) {
+        return YES;
+    }
+    return NO;
+}
+
+// 对比两个NSArray
++ (NSDictionary *)compareArray:(NSArray *)arr1 toAnother:(NSArray *)arr2 {
+    NSDictionary *cmpres;
+    NSArray *reduce = [arr1 filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (SELF in %@)", arr2]];
+    NSArray *incre = [arr2 filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (SELF in %@)", arr1]];
+    if (reduce.count == 0 && incre.count == 0) {
+        cmpres = @{@"chres" : @"same", @"reduce" : @"", @"incre" : @""};
+    } else {
+        cmpres = @{@"chres" : @"different", @"reduce" : reduce, @"incre" : incre};
+    }
+    return cmpres;
+}
+
+// 判断NSDictionary是否存在空关键字
++ (NSDictionary *)checkDictEmpty:(NSDictionary *)checkDict {
+    NSDictionary *dechres;
+    NSArray *emptykeys;
+
+    for (NSString *key in checkDict) {
+        id value = checkDict[key];
+        NSString *waitForCheckString = nil;
+        //添加对多重字典的支持
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            [self checkDictEmpty:value];
+            continue;
+        }
+        if ([value isKindOfClass:[NSNumber class]]) {
+            waitForCheckString = [NSString stringWithFormat:@"%@", value];
+        } else if ([value isKindOfClass:NSString.class]) {
+            waitForCheckString = value;
+        } else if ([value isKindOfClass:NSArray.class]) {
+            NSArray *arrayValue = (NSArray *)value;
+            for (NSDictionary *v in arrayValue) {
+                [self checkDictEmpty:v];
+            }
+        }
+
+        if ([self isBlankString:waitForCheckString]) {
+            emptykeys = [NSArray arrayWithObject:key];
+        }
+    }
+
+    if (emptykeys.count > 0) {
+        dechres = @{@"chres" : @"Failed", @"EmptyKeys" : emptykeys};
+    } else {
+        dechres = @{@"chres" : @"Passed", @"EmptyKeys" : @""};
+    }
+    return dechres;
 }
 
 #pragma mark - Setter & Getter

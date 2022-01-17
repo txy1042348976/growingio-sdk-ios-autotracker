@@ -48,7 +48,8 @@
     XCTAssertNotNil([testData growingHelper_utf8String]);
     XCTAssertNil([testData growingHelper_dictionaryObject]);
     XCTAssertNil([testData growingHelper_arrayObject]);
-    
+    XCTAssertNotNil([testData growingHelper_base64String]);
+
     NSString *md5 = [[@"hello world" dataUsingEncoding:NSUTF8StringEncoding] growingHelper_md5String];
     XCTAssertEqualObjects(md5, @"5EB63BBBE01EEED093CB22BB8F5ACDC3");
     
@@ -86,11 +87,7 @@
 }
 
 - (void)testImageHelper {
-    UIImage *image = [UIImage imageNamed:@"cycle_01"];
-    NSData *data = UIImageJPEGRepresentation(image, 0.5);
-    XCTAssertNotNil(data);
-    XCTAssertNotNil([data growingHelper_base64String]);
-
+    UIImage *image = [UIImage new];
     [image growingHelper_JPEG:0.8];
     [image growingHelper_PNG];
     [image growingHelper_Base64PNG];

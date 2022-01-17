@@ -10,7 +10,7 @@
 
 #import "GrowingAutotracker.h"
 #import "MockEventQueue.h"
-#import "NoburPoMeaProCheck.h"
+#import "ManualTrackHelper.h"
 
 @interface A2ViewChangeEventsTest : KIFTestCase
 
@@ -19,7 +19,6 @@
 @implementation A2ViewChangeEventsTest
 
 - (void)setUp {
-    //设置userid,确保cs1字段不空
     [[GrowingAutotracker sharedInstance] setLoginUserId:@"test"];
 }
 
@@ -39,8 +38,7 @@
             //判断单击列表是否正确
             NSDictionary *chevent = [chngEventArray objectAtIndex:chngEventArray.count - 1];
             //检测发送事件情况
-            NSDictionary *chngchr = [NoburPoMeaProCheck viewChangeEventCheck:chevent];
-            NSLog(@"Check result:%@", chngchr);
+            XCTAssertTrue([ManualTrackHelper viewChangeEventCheck:chevent]);
             NSLog(@"TextField输出内容，检测chng事件测试通过---Passed！");
         } else {
             NSLog(@"TextField输出内容，检测chng事件,测试不通过！没有发送chng事件");

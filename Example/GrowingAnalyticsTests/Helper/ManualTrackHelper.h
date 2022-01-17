@@ -13,9 +13,6 @@
 @property (class, nonatomic, copy, readonly) NSArray *context;
 @property (class, nonatomic, copy, readonly) NSArray *contextOptional;
 
-//判断字典dicts是否包含关键字ckchar
-+ (Boolean *)CheckContainsKey:(NSDictionary *)dicts:(NSString *)ckchar;
-
 + (BOOL)visitEventCheck:(NSDictionary *)event;
 
 + (BOOL)customEventCheck:(NSDictionary *)event;
@@ -28,6 +25,14 @@
 
 + (BOOL)appCloseEventCheck:(NSDictionary *)event;
 
++ (BOOL)pageEventCheck:(NSDictionary *)event;
+
 + (BOOL)pageAttributesEventCheck:(NSDictionary *)event;
+
++ (BOOL)viewClickEventCheck:(NSDictionary *)event;
+
++ (BOOL)viewChangeEventCheck:(NSDictionary *)event;
+
++ (BOOL)hybridFormSubmitEventCheck:(NSDictionary *)event;
 
 @end

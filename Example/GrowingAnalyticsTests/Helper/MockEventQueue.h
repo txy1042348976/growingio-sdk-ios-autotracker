@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "GrowingDispatchManager.h"
 
 #define TestLog(fmt, ...) NSLog((@"%@ " fmt), NSStringFromSelector(_cmd), ##__VA_ARGS__);
 #define TestSuccess(fmt, ...) TestLog(@",test passed! " fmt, ##__VA_ARGS__)

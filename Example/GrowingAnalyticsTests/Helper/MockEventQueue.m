@@ -8,8 +8,8 @@
 
 #import "MockEventQueue.h"
 
-#import "GrowingDispatchManager.h"
-#import "GrowingEventManager.h"
+@import GrowingAnalytics.GrowingDispatchManager;
+@import GrowingAnalytics.GrowingEventManager;
 
 @interface MockEventQueue () <GrowingEventInterceptor>
 

@@ -22,22 +22,22 @@
     {
       "target" : {
         "containerPath" : "container:Example.xcodeproj",
-        "identifier" : "34BA7B2E277C63D00030AC21",
-        "name" : "ProtobufTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Example.xcodeproj",
-        "identifier" : "4962651D24DA665200032551",
-        "name" : "ExampleTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Example.xcodeproj",
         "identifier" : "34AB4E46279000F5002549FF",
         "name" : "GrowingAnalyticsStartTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Example.xcodeproj",
+        "identifier" : "34BF77B72795561300CA18BA",
+        "name" : "HostApplicationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Example.xcodeproj",
+        "identifier" : "34BA7B2E277C63D00030AC21",
+        "name" : "ProtobufTests"
       }
     }
   ],

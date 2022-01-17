@@ -19,13 +19,6 @@ target 'Example' do
   pod 'SDCycleScrollView', '~> 1.75'
 end
 
-target 'ExampleTests' do
-   project 'Example/Example'
-   pod 'GrowingAnalytics/Autotracker', :path => './'
-   pod 'KIF', :configurations => ['Debug']
-#   pod 'OHHTTPStubs', :configurations => ['Debug']
-end
-
 target 'GrowingAnalyticsTests' do
    project 'Example/Example'
    pod 'GrowingAnalytics/Autotracker', :path => './'
@@ -35,6 +28,12 @@ target 'GrowingAnalyticsStartTests' do
    project 'Example/Example'
    pod 'GrowingAnalytics/Autotracker', :path => './'
    pod 'GrowingAnalytics/Tracker', :path => './'
+end
+
+target 'HostApplicationTests' do
+   project 'Example/Example'
+   pod 'GrowingAnalytics/Autotracker', :path => './'
+   pod 'KIF', :configurations => ['Debug']
 end
 
 target 'ProtobufTests' do
