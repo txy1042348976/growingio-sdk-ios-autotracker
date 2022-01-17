@@ -6,11 +6,15 @@
 //  Copyright (C) 2018 Beijing Yishu Technology Co., Ltd.
 //
 
-#import "A2ViewChangeEventsTest.h"
+#import <KIF/KIF.h>
 
 #import "GrowingAutotracker.h"
 #import "MockEventQueue.h"
 #import "NoburPoMeaProCheck.h"
+
+@interface A2ViewChangeEventsTest : KIFTestCase
+
+@end
 
 @implementation A2ViewChangeEventsTest
 

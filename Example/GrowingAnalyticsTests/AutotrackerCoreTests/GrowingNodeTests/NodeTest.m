@@ -42,6 +42,8 @@
 }
 
 -(void)testGrowingUIViewController {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     UIViewController *vc1 = [[UIViewController alloc]init];
     [vc1 performSelector:@selector(growingNodeParent)];
     [vc1 performSelector:@selector(growingAppearStateCanTrack)];
@@ -59,9 +61,12 @@
     [vc1 performSelector:@selector(growingNodeIndexPath)];
     [vc1 performSelector:@selector(growingNodeChilds)];
     [vc1 performSelector:@selector(growingPageIgnorePolicy)];
+#pragma clang diagnostic pop
 }
 
 - (void)testGrowingUICollectionView {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.headerReferenceSize = CGSizeMake(10, 10);
     layout.itemSize = CGSizeMake(110, 150);
@@ -81,9 +86,12 @@
     [cell performSelector:@selector(growingNodeDonotCircle)];
     [cell performSelector:@selector(growingNodeUserInteraction)];
     [cell performSelector:@selector(growingViewUserInteraction)];
+#pragma clang diagnostic pop
 }
 
 - (void)testGrowingUIView {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     UIView *view2 = [[UIView alloc] init];
     [view2 performSelector:@selector(growingNodeIndexPath)];
     [view2 performSelector:@selector(growingNodeKeyIndex)];
@@ -110,6 +118,7 @@
     [view2 performSelector:@selector(growingIMPTrackVariable)];
     [view2 performSelector:@selector(growingViewIgnorePolicy)];
     [view2 performSelector:@selector(growingStopTrackImpression)];
+#pragma clang diagnostic pop
 }
 
 @end

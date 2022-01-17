@@ -40,8 +40,11 @@
 
     NSString *obj = [GrowingKeyChainWrapper keyChainObjectForKey:@"KeyChainTestKey"];
     XCTAssertTrue([obj isEqualToString:@"KeyChainTest"]);
-
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     [GrowingKeyChainWrapper performSelector:@selector(removeKeyChainObjectForKey:) withObject:@"KeyChainTestKey"];
+#pragma clang diagnostic pop
 
     NSString *obj2 = [GrowingKeyChainWrapper keyChainObjectForKey:@"KeyChainTestKey"];
     XCTAssertTrue(obj2 == nil);

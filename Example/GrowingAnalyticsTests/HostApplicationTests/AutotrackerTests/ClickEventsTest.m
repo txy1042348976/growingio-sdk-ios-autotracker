@@ -6,12 +6,17 @@
 //  Copyright (C) 2018 Beijing Yishu Technology Co., Ltd.
 //
 
-#import "ClickEventsTest.h"
+#import <KIF/KIF.h>
 
 #import "GrowingAutotracker.h"
 #import "GrowingTracker.h"
 #import "MockEventQueue.h"
 #import "NoburPoMeaProCheck.h"
+
+@interface ClickEventsTest : KIFTestCase
+
+@end
+
 @implementation ClickEventsTest
 
 - (void)beforeEach {
