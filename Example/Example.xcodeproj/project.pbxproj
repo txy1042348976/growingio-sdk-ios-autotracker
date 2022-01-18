@@ -89,6 +89,11 @@
 		34AB4E4A279000F5002549FF /* GrowingAnalyticsStartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AB4E49279000F5002549FF /* GrowingAnalyticsStartTests.m */; };
 		34B2147C27966142004E2CE3 /* DatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2147B27966142004E2CE3 /* DatabaseTest.m */; };
 		34B2147E2796664E004E2CE3 /* JSONPersistenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2147D2796664E004E2CE3 /* JSONPersistenceTest.m */; };
+		34B2148727969562004E2CE3 /* DynamicProxyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2148627969562004E2CE3 /* DynamicProxyTest.m */; };
+		34B2148A2796A234004E2CE3 /* GrowingAlertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B214892796A234004E2CE3 /* GrowingAlertTest.m */; };
+		34B2148C2796A5D5004E2CE3 /* GrowingStatusBarTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2148B2796A5D5004E2CE3 /* GrowingStatusBarTest.m */; };
+		34B2148E2796B0D8004E2CE3 /* ApplicationEventManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2148D2796B0D8004E2CE3 /* ApplicationEventManagerTest.m */; };
+		34B214912796B74B004E2CE3 /* GrowingAppLifeCycleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B214902796B74B004E2CE3 /* GrowingAppLifeCycleTest.m */; };
 		34B25967278E76890096A10C /* ManualTrackHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4962653224DA66B600032551 /* ManualTrackHelper.m */; };
 		34B932352767661600025C94 /* MeasurementProtocol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B932342767661600025C94 /* MeasurementProtocol.storyboard */; };
 		34BA7B1E277C61630030AC21 /* GrowingWindowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4C09D277025D70056C8C4 /* GrowingWindowTest.m */; };
@@ -248,6 +253,11 @@
 		34AB4E49279000F5002549FF /* GrowingAnalyticsStartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingAnalyticsStartTests.m; sourceTree = "<group>"; };
 		34B2147B27966142004E2CE3 /* DatabaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTest.m; sourceTree = "<group>"; };
 		34B2147D2796664E004E2CE3 /* JSONPersistenceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONPersistenceTest.m; sourceTree = "<group>"; };
+		34B2148627969562004E2CE3 /* DynamicProxyTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicProxyTest.m; sourceTree = "<group>"; };
+		34B214892796A234004E2CE3 /* GrowingAlertTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingAlertTest.m; sourceTree = "<group>"; };
+		34B2148B2796A5D5004E2CE3 /* GrowingStatusBarTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingStatusBarTest.m; sourceTree = "<group>"; };
+		34B2148D2796B0D8004E2CE3 /* ApplicationEventManagerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationEventManagerTest.m; sourceTree = "<group>"; };
+		34B214902796B74B004E2CE3 /* GrowingAppLifeCycleTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingAppLifeCycleTest.m; sourceTree = "<group>"; };
 		34B932342767661600025C94 /* MeasurementProtocol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeasurementProtocol.storyboard; sourceTree = "<group>"; };
 		34BA7B17277C61250030AC21 /* GrowingAnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrowingAnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BA7B2F277C63D00030AC21 /* ProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,7 +508,9 @@
 				34C0BF38277EA75A0047ADC4 /* EventTests */,
 				34BA7B46277D925C0030AC21 /* FileStorageTests */,
 				346EABE2277EDFF000A32B03 /* HelpersTests */,
+				34B2148F2796B72B004E2CE3 /* HookTests */,
 				346EABE6277EE30700A32B03 /* ManagerTests */,
+				34B214882796A211004E2CE3 /* MenuTests */,
 				346EABEC277EE57D00A32B03 /* NetWorkTests */,
 				34AB4E5127901570002549FF /* ThreadTests */,
 				346EABE9277EE51900A32B03 /* UtilsTests */,
@@ -519,6 +531,7 @@
 			children = (
 				346EABE7277EE33F00A32B03 /* StatusBarEventManagerTest.m */,
 				34BF77AD2795095100CA18BA /* GrowingSessionTest.m */,
+				34B2148D2796B0D8004E2CE3 /* ApplicationEventManagerTest.m */,
 			);
 			path = ManagerTests;
 			sourceTree = "<group>";
@@ -527,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				346EABEA277EE53200A32B03 /* DeviceInfoTest.m */,
+				34B2148627969562004E2CE3 /* DynamicProxyTest.m */,
 			);
 			path = UtilsTests;
 			sourceTree = "<group>";
@@ -616,6 +630,23 @@
 				34B2147B27966142004E2CE3 /* DatabaseTest.m */,
 			);
 			path = DatabaseTests;
+			sourceTree = "<group>";
+		};
+		34B214882796A211004E2CE3 /* MenuTests */ = {
+			isa = PBXGroup;
+			children = (
+				34B214892796A234004E2CE3 /* GrowingAlertTest.m */,
+				34B2148B2796A5D5004E2CE3 /* GrowingStatusBarTest.m */,
+			);
+			path = MenuTests;
+			sourceTree = "<group>";
+		};
+		34B2148F2796B72B004E2CE3 /* HookTests */ = {
+			isa = PBXGroup;
+			children = (
+				34B214902796B74B004E2CE3 /* GrowingAppLifeCycleTest.m */,
+			);
+			path = HookTests;
 			sourceTree = "<group>";
 		};
 		34B93233276765CD00025C94 /* Storyboard */ = {
@@ -1449,6 +1480,9 @@
 				34B2147C27966142004E2CE3 /* DatabaseTest.m in Sources */,
 				34BA7B45277D91900030AC21 /* WebCircleTest.m in Sources */,
 				34BA7B2A277C63660030AC21 /* MockEventQueue.m in Sources */,
+				34B2148727969562004E2CE3 /* DynamicProxyTest.m in Sources */,
+				34B214912796B74B004E2CE3 /* GrowingAppLifeCycleTest.m in Sources */,
+				34B2148E2796B0D8004E2CE3 /* ApplicationEventManagerTest.m in Sources */,
 				34BA7B48277D92840030AC21 /* FileStorageTest.m in Sources */,
 				34B25967278E76890096A10C /* ManualTrackHelper.m in Sources */,
 				34C0BF3A277EA7C90047ADC4 /* DataTrafficTest.m in Sources */,
@@ -1460,12 +1494,14 @@
 				346EABF2277EE63F00A32B03 /* NodeTest.m in Sources */,
 				34BA7B42277D8EC30030AC21 /* DeepLinkTest.m in Sources */,
 				34BA7B1E277C61630030AC21 /* GrowingWindowTest.m in Sources */,
+				34B2148C2796A5D5004E2CE3 /* GrowingStatusBarTest.m in Sources */,
 				346EABE5277EE1FD00A32B03 /* HybridTest.m in Sources */,
 				34BA7B1F277C616B0030AC21 /* GrowingAnnotationTest.m in Sources */,
 				346EABEB277EE53200A32B03 /* DeviceInfoTest.m in Sources */,
 				346EABEE277EE5C300A32B03 /* RequestTest.m in Sources */,
 				34B2147E2796664E004E2CE3 /* JSONPersistenceTest.m in Sources */,
 				34BA7B23277C617F0030AC21 /* GrowingDispatchManagerTest.m in Sources */,
+				34B2148A2796A234004E2CE3 /* GrowingAlertTest.m in Sources */,
 				34BA7B27277C63070030AC21 /* EncryptionTest.m in Sources */,
 				346EABE8277EE33F00A32B03 /* StatusBarEventManagerTest.m in Sources */,
 				34BA7B26277C62FF0030AC21 /* JSONDatabaseTest.m in Sources */,

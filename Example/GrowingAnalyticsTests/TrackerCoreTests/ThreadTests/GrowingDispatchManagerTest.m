@@ -40,6 +40,13 @@
     [GrowingDispatchManager dispatchInGrowingThread:^{
         XCTAssertTrue([[NSThread currentThread] isEqual:[GrowingThread sharedThread]]);
     }];
+    
+    [GrowingDispatchManager dispatchInGrowingThread:^{
+        XCTAssertTrue([[NSThread currentThread] isEqual:[GrowingThread sharedThread]]);
+        [GrowingDispatchManager dispatchInGrowingThread:^{
+            XCTAssertTrue([[NSThread currentThread] isEqual:[GrowingThread sharedThread]]);
+        }];
+    }];
 
     __block int i = 0;
     [GrowingDispatchManager dispatchInGrowingThread:^{
@@ -52,15 +59,30 @@
     [GrowingDispatchManager dispatchInMainThread:^{
         XCTAssertTrue([NSThread isMainThread]);
     }];
-
+    
     [GrowingDispatchManager trackApiSel:@selector(test) dispatchInMainThread:^{
         XCTAssertTrue([NSThread isMainThread]);
     }];
+    
+    [GrowingDispatchManager dispatchInGrowingThread:^{
+        [GrowingDispatchManager dispatchInMainThread:^{
+            XCTAssertTrue([NSThread isMainThread]);
+        }];
+        
+        [GrowingDispatchManager trackApiSel:@selector(test) dispatchInMainThread:^{
+            XCTAssertTrue([NSThread isMainThread]);
+        }];
+    } waitUntilDone:YES];
 
     [GrowingDispatchManager dispatchInLowThread:^{
         int i = strcmp(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL), "io.growing.low");
         XCTAssertTrue(i == 0);
     }];
+}
+
+- (void)testGrowingThread {
+    XCTAssertNotNil([GrowingThread sharedThread]);
+    XCTAssertNotNil([GrowingThread sharedThread].runLoop);
 }
 
 @end

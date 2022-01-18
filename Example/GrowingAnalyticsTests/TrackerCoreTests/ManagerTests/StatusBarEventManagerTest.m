@@ -22,7 +22,9 @@
 
 #import "GrowingStatusBarEventManager.h"
 
-@interface StatusBarEventManagerTest : XCTestCase
+@interface StatusBarEventManagerTest : XCTestCase <GrowingStatusBarEventProtocol>
+
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
 
 @end
 
@@ -30,6 +32,7 @@
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.tap = [[UITapGestureRecognizer alloc] init];
 }
 
 - (void)tearDown {
@@ -37,9 +40,24 @@
 }
 
 - (void)testGrowingStatusBarEventManager {
-    [[GrowingStatusBarEventManager sharedInstance] dispatchTapStatusBar:nil];
-    [[GrowingStatusBarEventManager sharedInstance] addStatusBarObserver:self];
-    [[GrowingStatusBarEventManager sharedInstance] removeStatusBarObserver:self];
+    GrowingStatusBarEventManager *manager = GrowingStatusBarEventManager.sharedInstance;
+    XCTAssertNotNil(manager);
+    
+    // for safe sharedInstance
+    GrowingStatusBarEventManager *manager2 = [[GrowingStatusBarEventManager alloc] init];
+    XCTAssertEqualObjects(manager, manager2);
+    XCTAssertEqualObjects(manager, manager.copy);
+    XCTAssertEqualObjects(manager, manager.mutableCopy);
+
+    XCTAssertNoThrow([manager addStatusBarObserver:self]);
+    XCTAssertNoThrow([manager dispatchTapStatusBar:self.tap]);
+    XCTAssertNoThrow([manager removeStatusBarObserver:self]);
+}
+
+#pragma mark - GrowingStatusBarEventProtocol
+
+- (void)didTapStatusBar:(id)gesture {
+    XCTAssertEqualObjects(self.tap, gesture);
 }
 
 @end

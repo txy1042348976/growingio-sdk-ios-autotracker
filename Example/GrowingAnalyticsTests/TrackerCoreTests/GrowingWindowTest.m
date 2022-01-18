@@ -35,6 +35,16 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+- (void)testGrowingWindowViewController {
+    GrowingWindow *window = [[GrowingWindow alloc] initWithFrame:CGRectMake(0,
+                                                                            0,
+                                                                            [UIScreen mainScreen].bounds.size.width,
+                                                                            [UIScreen mainScreen].bounds.size.height)];
+    XCTAssertTrue(window.rootViewController.shouldAutorotate);
+    XCTAssertEqual(window.rootViewController.supportedInterfaceOrientations, UIInterfaceOrientationMaskAll);
+    XCTAssertEqual(window.rootViewController.preferredInterfaceOrientationForPresentation, [[UIApplication sharedApplication]statusBarOrientation]);
+}
+
 - (void)testGrowingWindow {
     GrowingWindow *window = [[GrowingWindow alloc] initWithFrame:CGRectMake(0,
                                                                             0,
@@ -48,15 +58,19 @@
     Class cls = NSClassFromString(@"GrowingWindowContentView");
     id sharedInstance = [cls performSelector:NSSelectorFromString(@"sharedInstance")];
     NSMutableArray *array = [sharedInstance performSelector:NSSelectorFromString(@"childWindowView")];
-#pragma clang diagnostic pop
-
     for (UIView *obj in array) {
         XCTAssertTrue(obj == window);
     }
+    XCTAssertNoThrow([sharedInstance hitTest:CGPointMake(0, 0) withEvent:nil]);
+
 
     GrowingWindowView *windowView = [[GrowingWindowView alloc] init];
     windowView.growingViewLevel = 2;
     XCTAssertEqual(windowView.growingViewLevel, 2);
+    
+    XCTAssertNoThrow([window hitTest:CGPointMake(0, 0) withEvent:nil]);
+    XCTAssertFalse([window performSelector:NSSelectorFromString(@"growingNodeIsBadNode")]);
+#pragma clang diagnostic pop
 }
 
 @end
