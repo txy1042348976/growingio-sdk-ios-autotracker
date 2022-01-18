@@ -28,6 +28,7 @@
 + (void)setUp {
     GrowingAutotrackConfiguration *configuration = [GrowingAutotrackConfiguration configurationWithProjectId:@"test"];
     configuration.idMappingEnabled = YES;
+    configuration.sessionInterval = 10.0f;
     [GrowingAutotracker startWithConfiguration:configuration launchOptions:nil];
 }
 

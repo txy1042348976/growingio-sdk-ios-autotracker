@@ -21,6 +21,12 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <objc/runtime.h>
 
+@interface InvocationHelper ()
+
++ (id)performSelector:(SEL)selector target:(id)target arguments:(va_list)arguments;
+
+@end
+
 @implementation NSObject (InvocationHelper)
 
 + (id)safePerformSelector:(SEL)selector {
@@ -28,7 +34,15 @@
 }
 
 + (id)safePerformSelector:(SEL)selector arguments:(id _Nullable)arguments, ... {
-    return [InvocationHelper safePerformAction:selector target:(id)self arguments:arguments];
+    if (!arguments) {
+        return [InvocationHelper performSelector:selector target:(id)self arguments:nil];
+    }
+
+    va_list args;
+    va_start(args, arguments);
+    id result = [InvocationHelper performSelector:selector target:(id)self arguments:args];
+    va_end(args);
+    return result;
 }
 
 - (id)safePerformSelector:(SEL)selector {
@@ -36,7 +50,15 @@
 }
 
 - (id)safePerformSelector:(SEL)selector arguments:(id _Nullable)arguments, ... {
-    return [InvocationHelper safePerformAction:selector target:self arguments:arguments];
+    if (!arguments) {
+        return [InvocationHelper performSelector:selector target:self arguments:nil];
+    }
+
+    va_list args;
+    va_start(args, arguments);
+    id result = [InvocationHelper performSelector:selector target:self arguments:args];
+    va_end(args);
+    return result;
 }
 
 @end
@@ -46,17 +68,14 @@
 /// [NSInvocation-Block](https://github.com/deput/NSInvocation-Block)
 @implementation InvocationHelper
 
-+ (id)safePerformAction:(SEL)action target:(id)target arguments:(id _Nullable)arguments, ... {
-    NSMethodSignature *methodSig = [target methodSignatureForSelector:action];
++ (id)performSelector:(SEL)selector target:(id)target arguments:(va_list)arguments {
+    NSMethodSignature *methodSig = [target methodSignatureForSelector:selector];
     if (methodSig == nil) {
         return nil;
     }
     const char *retType = [methodSig methodReturnType];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
-    [self invocationInvoke:invocation arguments:arguments];
-    [invocation setSelector:action];
-    [invocation setTarget:target];
-    [invocation invoke];
+    [self invocationInvoke:invocation target:target selector:selector arguments:arguments];
 
     if (strcmp(retType, @encode(void)) == 0) {
         return nil;
@@ -96,17 +115,20 @@
     do {                                             \
         type val = 0;                                \
         val = va_arg(args, type);                    \
-        [invocation setArgument:&val atIndex:2 + i]; \
+        [invocation setArgument:&val atIndex:i + 2]; \
     } while (0)
-+ (void)invocationInvoke:(NSInvocation *)invocation arguments:(id _Nullable)arguments, ... {
++ (void)invocationInvoke:(NSInvocation *)invocation target:(id)target selector:(SEL)selector arguments:(va_list)args {
+    if (!args) {
+        [invocation setSelector:selector];
+        [invocation setTarget:target];
+        [invocation invoke];
+        return;
+    }
     NSUInteger argsCount = invocation.methodSignature.numberOfArguments - 2;
-    va_list args;
-    va_start(args, arguments);
     for (NSUInteger i = 0; i < argsCount; ++i) {
         const char *argType = [invocation.methodSignature getArgumentTypeAtIndex:i + 2];
         if (argType[0] == _C_CONST)
             argType++;
-
         if (argType[0] == '@') {  // id and block
             ARG_GET_SET(id);
         } else if (strcmp(argType, @encode(Class)) == 0) {  // Class
@@ -120,7 +142,7 @@
         } else if (strcmp(argType, @encode(float)) == 0) {  // float
             float val = 0;
             val = (float)va_arg(args, double);
-            [invocation setArgument:&val atIndex:2 + i];
+            [invocation setArgument:&val atIndex:i + 2];
         } else if (argType[0] == '^') {  // pointer ( andconst pointer)
             ARG_GET_SET(void *);
         } else if (strcmp(argType, @encode(char *)) == 0) {  // char* (and const char*)
@@ -146,7 +168,10 @@
             assert(false && "struct union array unsupported!");
         }
     }
-    va_end(args);
+
+    [invocation setSelector:selector];
+    [invocation setTarget:target];
+    [invocation invoke];
 }
 
 @end

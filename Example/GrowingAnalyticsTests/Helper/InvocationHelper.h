@@ -33,8 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface InvocationHelper : NSObject
 
-+ (id)safePerformAction:(SEL)action target:(NSObject *)target arguments:(id _Nullable)arguments, ...;
-
 @end
 
 NS_ASSUME_NONNULL_END
