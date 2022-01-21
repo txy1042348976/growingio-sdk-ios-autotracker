@@ -32,7 +32,7 @@ GrowingAnalytics具备自动采集基本的用户行为事件，比如访问和�
       tracker.source_files = 'GrowingTracker/**/*{.h,.m,.c,.cpp,.mm}'
       tracker.dependency 'GrowingAnalytics/TrackerCore'
       tracker.dependency 'GrowingAnalytics/MobileDebugger'
-      
+      tracker.dependency 'FMDB/SQLCipher'
       tracker.dependency 'GrowingAnalytics/Database'
       tracker.dependency 'GrowingAnalytics/Network'
       tracker.dependency 'GrowingAnalytics/Encryption'
