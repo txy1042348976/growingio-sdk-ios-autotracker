@@ -21,6 +21,22 @@
 #import <XCTest/XCTest.h>
 
 #import "GrowingDeepLinkHandler.h"
+#import "GrowingSceneDelegateAutotracker.h"
+
+@interface SceneDelegate_XCTest : UIResponder
+
+@end
+
+@implementation SceneDelegate_XCTest
+
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity API_AVAILABLE(ios(13.0)) {
+}
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts API_AVAILABLE(ios(13.0)) {
+    
+}
+
+@end
 
 @interface DeepLinkTest : XCTestCase <GrowingDeepLinkHandlerProtocol>
 
@@ -39,10 +55,8 @@
 
 }
 
-#pragma mark - GrowingDeepLinkHandlerProtocol
-
-- (BOOL)growingHandlerUrl:(NSURL *)url {
-    XCTAssertEqualObjects(url.absoluteString, self.urlString);
+- (void)testGrowingSceneDelegateAutotracker {
+    XCTAssertNoThrow([GrowingSceneDelegateAutotracker track:SceneDelegate_XCTest.class]);
 }
 
 - (void)testDeepLinkhandlerUrl {
@@ -50,6 +64,17 @@
     NSURL *url = [NSURL URLWithString:self.urlString];
     [GrowingDeepLinkHandler handlerUrl:url];
     [[GrowingDeepLinkHandler sharedInstance] removeHandlersObject:self];
+}
+
+- (void)testGrowingWebWatcher {
+    NSURL *url = [NSURL URLWithString:@"growing.9683a369c615f77d://growing/oauth2/token?openConsoleLog=Yes"];
+    [GrowingDeepLinkHandler handlerUrl:url];
+}
+
+#pragma mark - GrowingDeepLinkHandlerProtocol
+
+- (BOOL)growingHandlerUrl:(NSURL *)url {
+    XCTAssertEqualObjects(url.absoluteString, self.urlString);
 }
 
 @end

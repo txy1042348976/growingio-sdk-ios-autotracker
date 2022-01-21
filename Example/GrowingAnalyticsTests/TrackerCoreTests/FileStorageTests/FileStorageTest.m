@@ -53,13 +53,25 @@
 }
 
 - (void)testGrowingFileStorage {
-    GrowingFileStorage *storage = [[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"];
-    [storage resetAll];
-    [storage removeKey:@"testKey"];
-    [storage setArray:@[ @"testa", @"testb"] forKey:@"testKey"];
-    [storage arrayForKey:@"testKey"];
-    [storage setNumber:@1 forKey:@"testKeyNum"];
-    XCTAssertNotNil([storage numberForKey:@"testKeyNum"]);
+    {
+        XCTAssertNotNil([[GrowingFileStorage alloc] init]);
+        XCTAssertNotNil([[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"]);
+        XCTAssertNotNil([[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"
+                                                       directory:GrowingUserDirectoryDocuments]);
+        XCTAssertNotNil([[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"
+                                                       directory:GrowingUserDirectoryDocuments
+                                                          crypto:nil]);
+    }
+    
+    {
+        GrowingFileStorage *storage = [[GrowingFileStorage alloc] initWithName:@"testGrowingFileStorage"];
+        [storage resetAll];
+        [storage removeKey:@"testKey"];
+        [storage setArray:@[ @"testa", @"testb"] forKey:@"testKey"];
+        [storage arrayForKey:@"testKey"];
+        [storage setNumber:@1 forKey:@"testKeyNum"];
+        XCTAssertNotNil([storage numberForKey:@"testKeyNum"]);
+    }
 }
 
 @end

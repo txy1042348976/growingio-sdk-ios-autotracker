@@ -33,6 +33,7 @@
 #import "GrowingVisitEvent.h"
 #import "GrowingCustomEvent.h"
 #import "GrowingAppCloseEvent.h"
+#import "GrowingPageEvent.h"
 #import "GrowingVisitorAttributesEvent.h"
 #import "GrowingConversionVariableEvent.h"
 #import "GrowingLoginUserAttributesEvent.h"
@@ -207,6 +208,34 @@
     XCTAssertTrue([ManualTrackHelper appCloseEventCheck:dic]);
     XCTAssertTrue([self contextOptionalPropertyCheck:dic]);
 }
+
+//- (void)testGrowingPageEvent {
+//    GrowingBaseBuilder *builder = GrowingPageEvent.builder
+//        .setPath(@"path")
+//        .setOrientation(@"orientation")
+//        .setTitle(@"title")
+//        .setReferralPage(@"referralPage");
+//    [GrowingEventManager.sharedInstance postEventBuidler:builder];
+//
+//    NSArray<GrowingBaseEvent *> *events = [MockEventQueue.sharedQueue eventsFor:GrowingEventTypePage];
+//    XCTAssertEqual(events.count, 1);
+//
+//    GrowingPageEvent *event = (GrowingPageEvent *)events.firstObject;
+//    XCTAssertEqualObjects(event.eventType, GrowingEventTypePage);
+//    XCTAssertEqualObjects(event.pageName, @"path");
+//    XCTAssertEqualObjects(event.orientation, @"orientation");
+//    XCTAssertEqualObjects(event.title, @"title");
+//    XCTAssertEqualObjects(event.referralPage, @"referralPage");
+//
+//    NSDictionary *dic = event.toDictionary;
+//    XCTAssertEqualObjects(dic[@"eventType"], GrowingEventTypePage);
+//    XCTAssertEqualObjects(dic[@"path"], @"path");
+//    XCTAssertEqualObjects(dic[@"orientation"], @"orientation");
+//    XCTAssertEqualObjects(dic[@"title"], @"title");
+//    XCTAssertEqualObjects(dic[@"referralPage"], @"referralPage");
+//    XCTAssertTrue([ManualTrackHelper pageEventCheck:dic]);
+//    XCTAssertTrue([self contextOptionalPropertyCheck:dic]);
+//}
 
 - (void)testGrowingPageAttributesEvent {
     GrowingBaseBuilder *builder = GrowingPageAttributesEvent.builder

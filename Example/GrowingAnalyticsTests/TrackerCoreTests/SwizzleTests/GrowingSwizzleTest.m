@@ -22,6 +22,8 @@
 
 #import "GrowingSwizzle.h"
 #import "GrowingSwizzler.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 static NSInteger b = 0;
 
@@ -34,6 +36,8 @@ static NSInteger b = 0;
 - (void)instanceMethod:(NSString *)arg1 arg2:(NSString *)arg2;
 
 - (void)instanceMethod:(NSString *)arg1 arg2:(NSString *)arg2 arg3:(NSString *)arg3;
+
+- (void)instanceMethod:(NSString *)arg1 arg2:(NSString *)arg2 arg3:(NSString *)arg3 arg4:(NSString *)arg4;
 
 + (void)classMethod;
 
@@ -61,6 +65,10 @@ static NSInteger b = 0;
     b = 5;
 }
 
+- (void)instanceMethod:(NSString *)arg1 arg2:(NSString *)arg2 arg3:(NSString *)arg3 arg4:(NSString *)arg4 {
+    b = 6;
+}
+
 @end
 
 @interface Growing_Swizzle_XCTest (XCTest)
@@ -82,6 +90,73 @@ static NSInteger b = 0;
 }
 
 @end
+
+@interface Growing_Swizzle_Proxy_XCTest : NSProxy
+
+@property (nonatomic, weak) id target;
+
+- (void)delegateSelector;
+
+- (void)delegateSelector2;
+
+@end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
+
+@implementation Growing_Swizzle_Proxy_XCTest
+
+- (instancetype)initWithTarget:(id)target {
+    _target = target;
+    return self;
+}
+
+- (void)delegateSelector {
+    
+}
+
+static void fooMethod(id obj, SEL _cmd) {
+    
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    if (sel == @selector(delegateSelector2)) {
+        class_addMethod([self class], sel, (IMP)fooMethod, "v@:");
+    }
+    return NO;
+}
+
+@end
+
+#pragma clang diagnostic pop
+
+@interface Growing_Swizzle_Proxy_XCTest2 : NSProxy
+
+@property (nonatomic, weak) id target;
+
+- (instancetype)initWithTarget:(id)target;
+
+- (void)delegateSelector;
+
+@end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
+
+@implementation Growing_Swizzle_Proxy_XCTest2
+
+- (instancetype)initWithTarget:(id)target {
+    _target = target;
+    return self;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return _target;
+}
+
+@end
+
+#pragma clang diagnostic pop
 
 @interface GrowingSwizzleTest : XCTestCase
 
@@ -171,9 +246,79 @@ static NSInteger b = 0;
         [test instanceMethod:@"" arg2:@"" arg3:@""];
         XCTAssertEqual(b, 5);
     }
+    
+    {
+        [GrowingSwizzler growing_swizzleSelector:@selector(instanceMethod)
+                                         onClass:Growing_Swizzle_XCTest.class
+                                       withBlock:^{
+            b *= 2;
+        } named:@"xctest"];
+        [GrowingSwizzler growing_swizzleSelector:@selector(instanceMethod)
+                                         onClass:Growing_Swizzle_XCTest.class
+                                       withBlock:^{
+            b *= 3;
+        } named:@"xctest2"];
+        
+        Growing_Swizzle_XCTest *test = Growing_Swizzle_XCTest.new;
+        [test instanceMethod];
+        XCTAssertEqual(b, 6);
+
+        ((void(*)(id, SEL, SEL, Class))objc_msgSend)(GrowingSwizzler.class,
+                                                     @selector(growing_unswizzleSelector:onClass:),
+                                                     @selector(instanceMethod),
+                                                     Growing_Swizzle_XCTest.class);
+        [test instanceMethod];
+        XCTAssertEqual(b, 1);
+    }
+    
+    {
+        [GrowingSwizzler growing_swizzleSelector:@selector(respondsToSelector:)
+                                         onClass:Growing_Swizzle_XCTest.class
+                                       withBlock:^{
+            b = 12;
+        } named:@"xctest"];
+    }
+    
+    {
+        XCTAssertThrows([GrowingSwizzler growing_swizzleSelector:@selector(cannotFindMethod)
+                                                         onClass:Growing_Swizzle_XCTest.class
+                                                       withBlock:^{
+        } named:@"xctest"]);
+        
+        XCTAssertThrows([GrowingSwizzler growing_swizzleSelector:@selector(instanceMethod:arg2:arg3:arg4:)
+                                                         onClass:Growing_Swizzle_XCTest.class
+                                                       withBlock:^{
+        } named:@"xctest"]);
+    }
         
     XCTAssertNoThrow([GrowingSwizzler growing_printSwizzles]);
 #pragma clang diagnostic pop
+}
+
+- (void)test0GrowingSwizzlerRealDelegate {
+    id proxy = nil;
+    id proxy1 = [[Growing_Swizzle_Proxy_XCTest alloc] initWithTarget:nil];
+    id proxy2 = [[Growing_Swizzle_Proxy_XCTest2 alloc] initWithTarget:proxy1];
+    {
+        XCTAssertNoThrow([GrowingSwizzler realDelegateClassFromSelector:@selector(delegateSelector) proxy:proxy]);
+        
+        id result = [GrowingSwizzler realDelegateClassFromSelector:@selector(delegateSelector)
+                                                              proxy:proxy1];
+        XCTAssertEqualObjects(Growing_Swizzle_Proxy_XCTest.class, result);
+        XCTAssertTrue([GrowingSwizzler realDelegateClass:result respondsToSelector:@selector(delegateSelector)]);
+
+        id result2 = [GrowingSwizzler realDelegateClassFromSelector:@selector(delegateSelector2)
+                                                              proxy:proxy1];
+        XCTAssertEqualObjects(Growing_Swizzle_Proxy_XCTest.class, result);
+        XCTAssertTrue([GrowingSwizzler realDelegateClass:result2 respondsToSelector:@selector(delegateSelector2)]);
+    }
+    
+    {
+        id result = [GrowingSwizzler realDelegateClassFromSelector:@selector(delegateSelector)
+                                                             proxy:proxy2];
+        XCTAssertEqualObjects(Growing_Swizzle_Proxy_XCTest.class, result);
+        XCTAssertTrue([GrowingSwizzler realDelegateClass:result respondsToSelector:@selector(delegateSelector)]);
+    }
 }
 
 - (void)test1GrowingSwizzle {
