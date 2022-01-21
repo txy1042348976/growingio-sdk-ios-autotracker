@@ -52,7 +52,7 @@ GrowingAnalytics具备自动采集基本的用户行为事件，比如访问和�
       autotracker.dependency 'GrowingAnalytics/Hybrid'
       autotracker.dependency 'GrowingAnalytics/MobileDebugger'
       autotracker.dependency 'GrowingAnalytics/WebCircle'
-      
+      autotracker.dependency 'FMDB/SQLCipher'
       autotracker.dependency 'GrowingAnalytics/Database'
       autotracker.dependency 'GrowingAnalytics/Network'
       autotracker.dependency 'GrowingAnalytics/Encryption'
