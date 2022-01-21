@@ -37,7 +37,7 @@
 //  limitations under the License.
 
 #import <Foundation/Foundation.h>
-#import "sqlite3.h"
+#import <SQLCipher/sqlite3.h>
 #import "GrowingFMResultSet.h"
 #import "GrowingFMDatabasePool.h"
 
