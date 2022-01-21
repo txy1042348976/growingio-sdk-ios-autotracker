@@ -38,7 +38,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "sqlite3.h"
+#import <SQLCipher/sqlite3.h>
 
 @class GrowingFMDatabase;
 
